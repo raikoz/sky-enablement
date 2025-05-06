@@ -59,7 +59,7 @@
 }
 
 .red-glow {
-  box-shadow: 0 0 30px rgba(234, 56, 76, 0.5);
+  box-shadow: 0 0 15px rgba(234, 56, 76, 0.3);
 }
 
 .text-gradient {
@@ -70,9 +70,9 @@
 }
 
 .bg-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 .text-reveal {
@@ -87,7 +87,7 @@
   width: 100%;
   height: 100%;
   background-color: #ea384c;
-  animation: text-reveal-after 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+  animation: text-reveal-after 1.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
 
 @keyframes text-reveal-after {
@@ -103,7 +103,7 @@
   position: absolute;
   inset: 0;
   z-index: -10;
-  opacity: 0.05;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -115,25 +115,25 @@
   background: linear-gradient(135deg, #ea384c 0%, #750213 100%);
 }
 
-/* New animations and futuristic styles */
+/* Animations - more subtle and minimal */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 5px rgba(234, 56, 76, 0.7)); }
-  50% { filter: drop-shadow(0 0 20px rgba(234, 56, 76, 0.9)); }
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(234, 56, 76, 0.5)); }
+  50% { filter: drop-shadow(0 0 8px rgba(234, 56, 76, 0.7)); }
 }
 
 @keyframes grid-movement {
   0% { background-position: 0px 0px; }
-  100% { background-position: 20px 20px; }
+  100% { background-position: 30px 30px; }
 }
 
 @keyframes text-flicker {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  50% { opacity: 0.9; }
 }
 
 @keyframes rotate-slow {
@@ -142,32 +142,32 @@
 }
 
 @keyframes slide-up-fade {
-  0% { opacity: 0; transform: translateY(30px); }
+  0% { opacity: 0; transform: translateY(15px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
 .animate-float {
-  animation: float 7s ease-in-out infinite;
+  animation: float 9s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
+  animation: pulse-glow 5s ease-in-out infinite;
 }
 
 .animate-grid-movement {
-  animation: grid-movement 20s linear infinite;
+  animation: grid-movement 30s linear infinite;
 }
 
 .animate-text-flicker {
-  animation: text-flicker 0.5s ease-in-out infinite;
+  animation: text-flicker 3s ease-in-out infinite;
 }
 
 .animate-rotate-slow {
-  animation: rotate-slow 15s linear infinite;
+  animation: rotate-slow 20s linear infinite;
 }
 
 .animate-slide-up-fade {
-  animation: slide-up-fade 0.7s ease-out forwards;
+  animation: slide-up-fade 1s ease-out forwards;
 }
 
 .futuristic-border {
@@ -180,29 +180,29 @@
   inset: -1px;
   background: linear-gradient(90deg, transparent, #ea384c, transparent);
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .glass-effect {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .cyber-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(234, 56, 76, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(234, 56, 76, 0.5), transparent);
 }
 
 .animated-bg-grid {
-  background-image: linear-gradient(rgba(234, 56, 76, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234, 56, 76, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  animation: grid-movement 20s linear infinite;
+  background-image: linear-gradient(rgba(234, 56, 76, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 56, 76, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: grid-movement 40s linear infinite;
 }
 
 .tech-dots {
-  background-image: radial-gradient(rgba(234, 56, 76, 0.3) 2px, transparent 2px);
-  background-size: 30px 30px;
+  background-image: radial-gradient(rgba(234, 56, 76, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .digital-scan {
@@ -217,8 +217,8 @@
   left: 0;
   width: 100%;
   height: 200%;
-  background: linear-gradient(transparent, rgba(234, 56, 76, 0.2), transparent);
-  animation: digital-scan 3s linear infinite;
+  background: linear-gradient(transparent, rgba(234, 56, 76, 0.1), transparent);
+  animation: digital-scan 5s linear infinite;
 }
 
 @keyframes digital-scan {
@@ -228,7 +228,7 @@
 
 .text-typing::after {
   content: '|';
-  animation: blink 1s step-end infinite;
+  animation: blink 1.2s step-end infinite;
 }
 
 @keyframes blink {
@@ -237,13 +237,54 @@
 }
 
 .clip-path-diagonal {
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 .data-grid-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, transparent 20%, #000000 80%);
-  opacity: 0.5;
+  background: radial-gradient(circle, transparent 30%, #000000 90%);
+  opacity: 0.3;
   z-index: -1;
+}
+
+/* New minimal styles inspired by references */
+.subtle-hover {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.subtle-hover:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
+.subtle-line {
+  position: relative;
+}
+
+.subtle-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ea384c;
+  transition: width 0.3s ease;
+}
+
+.subtle-line:hover::after {
+  width: 100%;
+}
+
+.minimal-card {
+  background: rgba(15, 15, 15, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.minimal-card:hover {
+  border-color: rgba(234, 56, 76, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

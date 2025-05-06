@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Navbar = () => {
+interface NavbarProps {
+  currentSection?: string;
+}
+
+const Navbar = ({ currentSection }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -34,13 +38,28 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+          <a 
+            href="#about" 
+            className={`text-sm font-medium transition-colors ${
+              currentSection === 'about' ? 'text-white' : 'text-white/80 hover:text-white'
+            }`}
+          >
             About
           </a>
-          <a href="#services" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+          <a 
+            href="#services" 
+            className={`text-sm font-medium transition-colors ${
+              currentSection === 'services' ? 'text-white' : 'text-white/80 hover:text-white'
+            }`}
+          >
             Services
           </a>
-          <a href="#case-studies" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+          <a 
+            href="#case-studies" 
+            className={`text-sm font-medium transition-colors ${
+              currentSection === 'case-studies' ? 'text-white' : 'text-white/80 hover:text-white'
+            }`}
+          >
             Case Studies
           </a>
           <Button asChild variant="default" className="bg-skye-red hover:bg-skye-red/90 text-white">

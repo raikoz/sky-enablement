@@ -60,9 +60,9 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Digital particle background */}
+      {/* Digital particle background - more subtle */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 tech-dots opacity-10 animated-bg-grid"></div>
+        <div className="absolute inset-0 tech-dots opacity-5 animated-bg-grid"></div>
       </div>
 
       <Navbar currentSection={currentSection} />
@@ -78,26 +78,9 @@ const Index = () => {
       
       <Footer />
       
-      {/* Side indicators for scroll position */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="flex flex-col gap-4">
-          {['hero', 'services', 'about', 'case-studies', 'testimonials', 'contact'].map((section) => (
-            <a 
-              key={section}
-              href={`#${section}`}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSection === section ? 'bg-skye-red scale-125' : 'bg-white/30'
-              }`}
-              aria-label={`Go to ${section} section`}
-            />
-          ))}
-          <div className="w-0.5 h-20 mx-auto bg-gradient-to-b from-skye-red/50 to-transparent mt-2"></div>
-        </div>
-      </div>
-
-      {/* Corner design element */}
-      <div className="fixed bottom-0 left-0 border-b-2 border-l-2 border-skye-red/20 w-16 h-16 z-40"></div>
-      <div className="fixed top-0 right-0 border-t-2 border-r-2 border-skye-red/20 w-16 h-16 z-40"></div>
+      {/* Corner design element - more subtle */}
+      <div className="fixed bottom-0 left-0 border-b border-l border-skye-red/10 w-24 h-24 z-40"></div>
+      <div className="fixed top-0 right-0 border-t border-r border-skye-red/10 w-24 h-24 z-40"></div>
     </div>
   );
 };
