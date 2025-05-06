@@ -1,0 +1,82 @@
+
+import { CheckCircle } from 'lucide-react';
+
+const advantages = [
+  "Expert team with deep AI expertise",
+  "Customized solutions for your unique needs",
+  "Track record of delivering measurable results",
+  "Seamless integration with existing systems"
+];
+
+const About = () => {
+  return (
+    <section id="about" className="py-24 relative">
+      {/* Background accent */}
+      <div className="absolute top-0 left-0 right-0 h-1/2 bg-skye-darkGray clip-path-slant"></div>
+      
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image column */}
+          <div className="relative lg:order-2">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+              <img
+                src="/lovable-uploads/49a2b453-bc58-410a-9a69-6d941b659441.png"
+                alt="SKYE expertise"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70"></div>
+            </div>
+            
+            {/* Red accent */}
+            <div className="absolute -bottom-6 -left-6 w-1/2 aspect-square bg-skye-red red-glow rounded-full blur-3xl opacity-20"></div>
+            
+            {/* Stats */}
+            <div className="absolute left-0 bottom-0 p-8">
+              <div className="flex items-start gap-8">
+                <div>
+                  <p className="text-skye-red font-bold text-4xl">93%</p>
+                  <p className="text-white/80 text-sm">Client retention</p>
+                </div>
+                <div>
+                  <p className="text-skye-red font-bold text-4xl">140+</p>
+                  <p className="text-white/80 text-sm">Projects delivered</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Content column */}
+          <div className="lg:order-1">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              About <span className="text-skye-red">SKYE</span>
+            </h2>
+            
+            <p className="text-white/80 mb-6">
+              SKYE is a premier AI enablement company dedicated to helping forward-thinking brands harness the 
+              full potential of artificial intelligence. We bridge the gap between cutting-edge technology 
+              and practical business applications, delivering solutions that drive measurable growth.
+            </p>
+            
+            <p className="text-white/80 mb-8">
+              Our interdisciplinary team brings together AI specialists, data scientists, designers, and marketing 
+              strategists to create holistic solutions that not only leverage advanced technology but also align 
+              with your brand identity and business objectives.
+            </p>
+            
+            {/* Advantages */}
+            <div className="space-y-3">
+              {advantages.map((advantage, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <CheckCircle className="text-skye-red h-5 w-5 flex-shrink-0" />
+                  <span className="text-white/90">{advantage}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
