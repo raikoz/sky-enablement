@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import { ArrowRight, Mail, MessageSquare, Phone, User, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -11,11 +12,15 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
+    phone: '',
+    website: '',
+    budget: '',
+    hearAboutUs: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -31,7 +36,16 @@ const Contact = () => {
         description: "We'll get back to you shortly.",
       });
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ 
+        name: '', 
+        email: '', 
+        company: '', 
+        phone: '', 
+        website: '', 
+        budget: '', 
+        hearAboutUs: '', 
+        message: '' 
+      });
     }, 1000);
   };
 
@@ -55,7 +69,7 @@ const Contact = () => {
           {/* Content column */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Let's <span className="text-skye-red">Connect</span>
+              Get in <span className="text-skye-red">Touch</span>
             </h2>
             
             <p className="text-white/70 mb-8">
@@ -64,17 +78,31 @@ const Contact = () => {
             </p>
             
             <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Email</h3>
-                <p className="text-white/70">hello@skyeai.com</p>
+              <div className="flex items-center gap-3">
+                <Mail className="text-skye-red w-5 h-5" />
+                <div>
+                  <h3 className="text-lg font-semibold">Email</h3>
+                  <p className="text-white/70">hello@skyeai.com</p>
+                </div>
               </div>
               
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Headquarters</h3>
-                <p className="text-white/70">
-                  1234 Innovation Avenue<br />
-                  San Francisco, CA 94103
-                </p>
+              <div className="flex items-center gap-3">
+                <Phone className="text-skye-red w-5 h-5" />
+                <div>
+                  <h3 className="text-lg font-semibold">Phone</h3>
+                  <p className="text-white/70">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <MapPin className="text-skye-red w-5 h-5" />
+                <div>
+                  <h3 className="text-lg font-semibold">Headquarters</h3>
+                  <p className="text-white/70">
+                    1234 Innovation Avenue<br />
+                    San Francisco, CA 94103
+                  </p>
+                </div>
               </div>
               
               <div className="pt-4">
@@ -90,13 +118,13 @@ const Contact = () => {
           {/* Form column */}
           <div>
             <div className="bg-skye-black/50 backdrop-blur-md p-8 rounded-lg border border-white/10">
-              <h3 className="text-xl font-bold mb-6">Get in Touch</h3>
+              <h3 className="text-xl font-bold mb-6">Let's Connect</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-white/70">
-                      Name
+                      Name*
                     </label>
                     <Input
                       id="name"
@@ -111,7 +139,7 @@ const Contact = () => {
                   
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-white/70">
-                      Email
+                      Email*
                     </label>
                     <Input
                       id="email"
@@ -126,23 +154,95 @@ const Contact = () => {
                   </div>
                 </div>
                 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium text-white/70">
+                      Company
+                    </label>
+                    <Input
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your company"
+                      className="bg-white/5 border-white/10 focus:border-skye-red/50 text-white"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium text-white/70">
+                      Phone
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Your phone number"
+                      className="bg-white/5 border-white/10 focus:border-skye-red/50 text-white"
+                    />
+                  </div>
+                </div>
+                
                 <div className="space-y-2">
-                  <label htmlFor="company" className="text-sm font-medium text-white/70">
-                    Company
+                  <label htmlFor="website" className="text-sm font-medium text-white/70">
+                    Website
                   </label>
                   <Input
-                    id="company"
-                    name="company"
-                    value={formData.company}
+                    id="website"
+                    name="website"
+                    value={formData.website}
                     onChange={handleChange}
-                    placeholder="Your company"
+                    placeholder="https://"
                     className="bg-white/5 border-white/10 focus:border-skye-red/50 text-white"
                   />
                 </div>
                 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="budget" className="text-sm font-medium text-white/70">
+                      Budget Range
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="bg-white/5 border border-white/10 focus:border-skye-red/50 text-white w-full rounded-md h-10 px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="" disabled className="bg-black">Select a budget range</option>
+                      <option value="<50k" className="bg-black">Less than $50,000</option>
+                      <option value="50k-100k" className="bg-black">$50,000 - $100,000</option>
+                      <option value="100k-250k" className="bg-black">$100,000 - $250,000</option>
+                      <option value="250k+" className="bg-black">$250,000+</option>
+                    </select>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="hearAboutUs" className="text-sm font-medium text-white/70">
+                      How did you hear about us?
+                    </label>
+                    <select
+                      id="hearAboutUs"
+                      name="hearAboutUs"
+                      value={formData.hearAboutUs}
+                      onChange={handleChange}
+                      className="bg-white/5 border border-white/10 focus:border-skye-red/50 text-white w-full rounded-md h-10 px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="" disabled className="bg-black">Select an option</option>
+                      <option value="Search" className="bg-black">Search Engine</option>
+                      <option value="Social" className="bg-black">Social Media</option>
+                      <option value="Referral" className="bg-black">Referral</option>
+                      <option value="Event" className="bg-black">Event</option>
+                      <option value="Other" className="bg-black">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-white/70">
-                    Message
+                    Tell us about your project*
                   </label>
                   <Textarea
                     id="message"
@@ -157,10 +257,11 @@ const Contact = () => {
                 
                 <Button 
                   type="submit"
-                  className="w-full bg-skye-red hover:bg-skye-red/90 text-white" 
+                  className="w-full bg-skye-red hover:bg-skye-red/90 text-white flex items-center justify-center gap-2" 
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Send Message'} 
+                  {!isSubmitting && <ArrowRight className="w-4 h-4" />}
                 </Button>
               </form>
             </div>
