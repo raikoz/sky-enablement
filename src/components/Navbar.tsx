@@ -32,9 +32,11 @@ const Navbar = ({ currentSection }: NavbarProps) => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-3xl font-bold text-white font-mono tracking-wider relative group">
-          S<span className="text-skye-red">K</span>YE
-          <span className="absolute bottom-0 left-0 w-0 h-px bg-skye-red group-hover:w-full transition-all duration-500"></span>
+        <a href="#" className="relative group">
+          <span className="text-3xl font-bold tracking-wider font-mono bg-black/50 px-3 py-1 backdrop-blur-sm border border-skye-red/10 rounded-sm">
+            S<span className="text-skye-red">K</span>YE
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-skye-red group-hover:w-full transition-all duration-500"></span>
+          </span>
         </a>
 
         {/* Desktop Navigation */}

@@ -54,10 +54,26 @@ const Index = () => {
       });
     }, 500);
     
+    // Adjust section heights
+    const adjustSectionHeights = () => {
+      const sections = document.querySelectorAll('section');
+      const viewportHeight = window.innerHeight;
+      
+      sections.forEach(section => {
+        if (!section.classList.contains('footer-section')) {
+          section.style.minHeight = `${viewportHeight}px`;
+        }
+      });
+    };
+    
+    adjustSectionHeights();
+    window.addEventListener('resize', adjustSectionHeights);
+    
     return () => {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', adjustSectionHeights);
     };
   }, []);
 
@@ -78,7 +94,7 @@ const Index = () => {
       >
         <div className="relative mb-12">
           <div className="w-24 h-24 relative">
-            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">SKYE</span>
+            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-mono">SKYE</span>
           </div>
         </div>
         <div className="w-48 h-0.5 overflow-hidden">
