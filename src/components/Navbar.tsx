@@ -27,43 +27,47 @@ const Navbar = ({ currentSection }: NavbarProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md py-2' : 'bg-transparent py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-black/80 backdrop-blur-md py-2' : 'bg-transparent py-6'
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-white font-mono tracking-wider">
+        <a href="#" className="text-3xl font-bold text-white font-mono tracking-wider relative group">
           S<span className="text-skye-red">K</span>YE
+          <span className="absolute bottom-0 left-0 w-0 h-px bg-skye-red group-hover:w-full transition-all duration-500"></span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-10">
           <a 
             href="#about" 
-            className={`text-sm font-medium transition-colors ${
-              currentSection === 'about' ? 'text-white' : 'text-white/80 hover:text-white'
+            className={`text-sm font-medium transition-all duration-300 kriss-button ${
+              currentSection === 'about' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
             About
           </a>
           <a 
             href="#services" 
-            className={`text-sm font-medium transition-colors ${
-              currentSection === 'services' ? 'text-white' : 'text-white/80 hover:text-white'
+            className={`text-sm font-medium transition-all duration-300 kriss-button ${
+              currentSection === 'services' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
             Services
           </a>
           <a 
             href="#case-studies" 
-            className={`text-sm font-medium transition-colors ${
-              currentSection === 'case-studies' ? 'text-white' : 'text-white/80 hover:text-white'
+            className={`text-sm font-medium transition-all duration-300 kriss-button ${
+              currentSection === 'case-studies' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
             Case Studies
           </a>
-          <Button asChild variant="default" className="bg-skye-red hover:bg-skye-red/90 text-white">
-            <a href="#contact">Contact Us</a>
+          <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill group">
+            <a href="#contact" className="group-hover:text-white">
+              Contact Us
+              <span className="ml-2">→</span>
+            </a>
           </Button>
         </nav>
 
@@ -79,36 +83,39 @@ const Navbar = ({ currentSection }: NavbarProps) => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-white/10 py-4">
-          <nav className="flex flex-col container space-y-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-white/5 py-8">
+          <nav className="flex flex-col container space-y-6">
             <a
               href="#about"
-              className="text-white/80 hover:text-white p-2"
+              className="text-white/70 hover:text-white p-2 kriss-button"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </a>
             <a
               href="#services"
-              className="text-white/80 hover:text-white p-2"
+              className="text-white/70 hover:text-white p-2 kriss-button"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </a>
             <a
               href="#case-studies"
-              className="text-white/80 hover:text-white p-2"
+              className="text-white/70 hover:text-white p-2 kriss-button"
               onClick={() => setIsMenuOpen(false)}
             >
               Case Studies
             </a>
             <Button
               asChild
-              variant="default"
-              className="bg-skye-red hover:bg-skye-red/90 text-white w-full"
+              variant="ghost"
+              className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill"
               onClick={() => setIsMenuOpen(false)}
             >
-              <a href="#contact">Contact Us</a>
+              <a href="#contact">
+                Contact Us
+                <span className="ml-2">→</span>
+              </a>
             </Button>
           </nav>
         </div>

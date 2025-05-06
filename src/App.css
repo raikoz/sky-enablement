@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-/* Minimal, clean styling */
+/* Minimal, clean styling with futuristic elements */
 .logo {
   height: 5em;
   padding: 1em;
@@ -48,4 +48,118 @@
   color: #888;
   font-size: 0.9em;
   margin-top: 1em;
+}
+
+/* Futuristic glow */
+.futuristic-glow {
+  box-shadow: 0 0 15px rgba(234, 56, 76, 0.4);
+}
+
+/* Thin lines that appear on hover */
+.hover-line {
+  position: relative;
+}
+
+.hover-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ea384c;
+  transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hover-line:hover::after {
+  width: 100%;
+}
+
+/* Futuristic button effect */
+.btn-futuristic {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s;
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+/* Clean image hover effect */
+.image-hover {
+  transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.image-hover:hover {
+  transform: scale(1.03);
+}
+
+/* Thin border that animates */
+.animated-border {
+  position: relative;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.animated-border:hover::before {
+  border-color: rgba(234, 56, 76, 0.5);
+}
+
+/* Minimalist reveal animation */
+@keyframes reveal-slide {
+  0% { transform: scaleX(0); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+
+.reveal-element {
+  position: relative;
+}
+
+.reveal-element::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ea384c;
+  transform-origin: right;
+  animation: reveal-slide 1s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Futuristic grid overlay */
+.grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(234, 56, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(234, 56, 76, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Minimal loading animation */
+@keyframes minimal-loading {
+  0% { width: 0; opacity: 1; }
+  100% { width: 100%; opacity: 0.3; }
+}
+
+.minimal-loading {
+  height: 1px;
+  background: #ea384c;
+  animation: minimal-loading 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }

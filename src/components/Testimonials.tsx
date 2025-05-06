@@ -63,7 +63,7 @@ const Testimonials = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Parallax effect
+  // Subtle parallax effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (sectionRef.current) {
@@ -100,54 +100,39 @@ const Testimonials = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-24 relative overflow-hidden"
+      className="py-28 relative overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background accent */}
-      <div className="absolute top-0 left-0 w-full h-full animated-bg-grid opacity-20"></div>
+      {/* Subtle background grid */}
+      <div className="absolute top-0 left-0 w-full h-full kriss-grid opacity-10"></div>
       
-      {/* Red glowing orb */}
-      <div 
-        className="absolute left-1/4 top-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse-glow"
-        style={{ 
-          background: 'radial-gradient(circle, rgba(234, 56, 76, 0.4) 0%, rgba(0, 0, 0, 0) 70%)',
-          transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
-          transition: 'transform 0.3s ease-out'
-        }}
-      ></div>
-      
-      {/* Digital circuit lines */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 w-full h-0.5 bg-gradient-to-r from-transparent via-skye-red/30 to-transparent"></div>
-        <div className="absolute top-3/4 w-full h-0.5 bg-gradient-to-r from-transparent via-skye-red/30 to-transparent"></div>
-        <div className="absolute left-1/4 h-full w-0.5 bg-gradient-to-b from-transparent via-skye-red/30 to-transparent"></div>
-        <div className="absolute left-3/4 h-full w-0.5 bg-gradient-to-b from-transparent via-skye-red/30 to-transparent"></div>
-      </div>
+      {/* Horizontal lines */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-skye-red/20 to-transparent"></div>
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-skye-red/20 to-transparent"></div>
       
       <div className="container relative z-10">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="inline-flex items-center bg-skye-red/10 text-skye-red text-sm font-medium px-4 py-1.5 rounded-full mb-4 backdrop-blur-sm border border-skye-red/20">
-            <Code size={16} className="mr-2 animate-pulse" />
-            Testimonials
+          <div className="inline-block relative mb-6 kriss-reveal">
+            <span className="text-sm tracking-wider uppercase text-white/50">Testimonials</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 relative">
-            What Our <span className="text-skye-red animate-pulse-glow">Clients Say</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 relative kriss-text">
+            Client <span className="text-skye-red">Perspectives</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <p className="text-white/60 max-w-2xl mx-auto kriss-text">
             Hear from the companies we've helped transform with our AI enablement services.
           </p>
         </div>
         
         <div className="max-w-4xl mx-auto relative">
           {/* Testimonial cards */}
-          <div className="relative h-[400px]">
+          <div className="relative h-[360px]">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${
+                className={`absolute top-0 left-0 w-full transition-all duration-1000 ease-in-out ${
                   activeIndex === index
                     ? "opacity-100 translate-x-0 z-20"
                     : index < activeIndex
@@ -156,47 +141,33 @@ const Testimonials = () => {
                 }`}
               >
                 <div 
-                  className="bg-skye-darkGray/80 backdrop-blur-md rounded-xl p-8 md:p-12 border border-white/10 shadow-lg relative overflow-hidden"
+                  className="bg-black border border-white/5 p-12 relative kriss-3d-hover"
                   style={{ 
-                    backdropFilter: 'blur(10px)',
-                    transform: activeIndex === index ? `perspective(1000px) rotateX(${mousePosition.y * 5}deg) rotateY(${mousePosition.x * -5}deg)` : 'none',
-                    transition: 'transform 0.3s ease-out'
+                    transform: activeIndex === index ? `perspective(1000px) rotateX(${mousePosition.y * 2}deg) rotateY(${mousePosition.x * -2}deg)` : 'none',
+                    transition: 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)'
                   }}
                 >
-                  {/* Red scan line */}
-                  <div className="absolute inset-0 digital-scan opacity-30"></div>
-                  
-                  {/* Red accent line */}
-                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-skye-red/50 via-skye-red to-skye-red/20"></div>
-                  
-                  {/* Tech dot pattern */}
-                  <div className="absolute inset-0 tech-dots opacity-10"></div>
-                  
                   {/* Quote icon */}
-                  <div className="absolute top-8 right-8 text-skye-red/10 text-9xl font-serif">"</div>
-                  
-                  {/* Corner accents */}
-                  <div className="absolute top-0 left-0 border-t-2 border-l-2 border-skye-red/50 w-12 h-12"></div>
-                  <div className="absolute bottom-0 right-0 border-b-2 border-r-2 border-skye-red/50 w-12 h-12"></div>
+                  <div className="absolute top-8 left-8 text-skye-red/5 text-9xl font-serif">"</div>
                   
                   <div className="relative z-10">
-                    <p className="text-xl md:text-2xl font-light italic mb-8 text-white/90">
+                    <p className="text-xl font-light mb-10 text-white/80">
                       "{testimonial.quote}"
                     </p>
                     
                     <div className="flex items-center">
-                      <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-skye-red/50 animate-pulse-glow">
+                      <div className="w-14 h-14 rounded-sm overflow-hidden mr-5 relative">
+                        <div className="absolute inset-0 border border-skye-red/10"></div>
                         <img
                           src={testimonial.image}
                           alt={testimonial.author}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover grayscale"
                         />
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-lg">{testimonial.author}</h4>
-                        <p className="text-white/70">{testimonial.position}</p>
-                        <p className="text-skye-red font-medium flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-skye-red animate-ping"></span>
+                      <div className="text-left">
+                        <h4 className="font-medium text-base">{testimonial.author}</h4>
+                        <p className="text-white/50 text-sm">{testimonial.position}</p>
+                        <p className="text-skye-red/80 text-sm">
                           {testimonial.company}
                         </p>
                       </div>
@@ -208,7 +179,7 @@ const Testimonials = () => {
           </div>
           
           {/* Navigation controls */}
-          <div className={`flex justify-center mt-8 gap-4 transition-all duration-1000 delay-300 ${
+          <div className={`flex justify-end mt-8 gap-4 transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'
           }`}>
             <button
@@ -216,75 +187,55 @@ const Testimonials = () => {
                 prevTestimonial();
                 setAutoplay(false);
               }}
-              className="p-3 rounded-full bg-skye-darkGray/80 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors hover:border-skye-red/50 relative overflow-hidden group digital-scan"
+              className="p-3 border border-white/10 text-white hover:border-white/30 transition-colors"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={20} className="relative z-10" />
+              <ChevronLeft size={20} />
             </button>
-            
-            <div className="flex gap-2 items-center">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setActiveIndex(index);
-                    setAutoplay(false);
-                  }}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    activeIndex === index ? "bg-skye-red animate-pulse-glow" : "bg-white/20"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
             
             <button
               onClick={() => {
                 nextTestimonial();
                 setAutoplay(false);
               }}
-              className="p-3 rounded-full bg-skye-darkGray/80 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors hover:border-skye-red/50 relative overflow-hidden group digital-scan"
+              className="p-3 border border-white/10 text-white hover:border-white/30 transition-colors"
               aria-label="Next testimonial"
             >
-              <ChevronRight size={20} className="relative z-10" />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
         
-        {/* Logos */}
+        {/* Client logos */}
         <div className={`mt-24 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'
         }`}>
-          <p className="text-center text-white/50 mb-8 uppercase tracking-wider text-sm font-medium">
+          <p className="text-center text-white/30 mb-12 uppercase tracking-wider text-xs">
             Trusted by innovative companies
           </p>
           
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110 relative futuristic-border">
-              <svg viewBox="0 0 124 34" className="h-8 w-auto">
-                <path d="M6,0 L118,0 C121.3,0 124,2.7 124,6 L124,28 C124,31.3 121.3,34 118,34 L6,34 C2.7,34 0,31.3 0,28 L0,6 C0,2.7 2.7,0 6,0 Z" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-glow"></path>
-                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14" className="animate-text-flicker">BRAND ONE</text>
+          <div className="flex flex-wrap justify-center items-center gap-16">
+            <div className="opacity-30 hover:opacity-80 transition-all duration-500 group">
+              <svg viewBox="0 0 124 34" className="h-6 w-auto">
+                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14">BRAND ONE</text>
               </svg>
             </div>
             
-            <div className="w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110 relative futuristic-border">
-              <svg viewBox="0 0 124 34" className="h-8 w-auto">
-                <path d="M6,0 L118,0 C121.3,0 124,2.7 124,6 L124,28 C124,31.3 121.3,34 118,34 L6,34 C2.7,34 0,31.3 0,28 L0,6 C0,2.7 2.7,0 6,0 Z" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-glow"></path>
-                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14" className="animate-text-flicker">BRAND TWO</text>
+            <div className="opacity-30 hover:opacity-80 transition-all duration-500 group">
+              <svg viewBox="0 0 124 34" className="h-6 w-auto">
+                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14">BRAND TWO</text>
               </svg>
             </div>
             
-            <div className="w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110 relative futuristic-border">
-              <svg viewBox="0 0 124 34" className="h-8 w-auto">
-                <path d="M6,0 L118,0 C121.3,0 124,2.7 124,6 L124,28 C124,31.3 121.3,34 118,34 L6,34 C2.7,34 0,31.3 0,28 L0,6 C0,2.7 2.7,0 6,0 Z" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-glow"></path>
-                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14" className="animate-text-flicker">BRAND THREE</text>
+            <div className="opacity-30 hover:opacity-80 transition-all duration-500 group">
+              <svg viewBox="0 0 124 34" className="h-6 w-auto">
+                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14">BRAND THREE</text>
               </svg>
             </div>
             
-            <div className="w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110 relative futuristic-border">
-              <svg viewBox="0 0 124 34" className="h-8 w-auto">
-                <path d="M6,0 L118,0 C121.3,0 124,2.7 124,6 L124,28 C124,31.3 121.3,34 118,34 L6,34 C2.7,34 0,31.3 0,28 L0,6 C0,2.7 2.7,0 6,0 Z" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-glow"></path>
-                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14" className="animate-text-flicker">BRAND FOUR</text>
+            <div className="opacity-30 hover:opacity-80 transition-all duration-500 group">
+              <svg viewBox="0 0 124 34" className="h-6 w-auto">
+                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontFamily="monospace" fontSize="14">BRAND FOUR</text>
               </svg>
             </div>
           </div>
