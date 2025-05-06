@@ -5,10 +5,23 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   
   useEffect(() => {
     setIsLoaded(true);
+    
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % headlines.length);
+    }, 4000);
+    
+    return () => clearInterval(timer);
   }, []);
+
+  const headlines = [
+    "Future-Forward Brands",
+    "Industry Leaders",
+    "Global Innovators"
+  ];
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-4">
@@ -24,6 +37,14 @@ const Hero = () => {
       {/* Hero content */}
       <div className="container relative z-10 mt-20">
         <div className="max-w-3xl mx-auto md:ml-0">
+          {/* Animated badge */}
+          <div className={`inline-flex items-center bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6 transition-all duration-1000 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <span className="flex h-2 w-2 rounded-full bg-skye-red mr-2"></span>
+            <span className="text-sm font-medium text-white/80">AI Powered Solutions for Enterprise</span>
+          </div>
+        
           <div
             className={`overflow-hidden transition-opacity duration-1000 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
@@ -36,14 +57,19 @@ const Hero = () => {
             </h1>
           </div>
 
-          <div
-            className={`overflow-hidden transition-all duration-1000 delay-300 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-skye-red">Future-Forward</span> Brands
-            </h1>
+          <div className="h-[80px] md:h-[100px] lg:h-[120px] overflow-hidden relative">
+            {headlines.map((headline, index) => (
+              <h1 
+                key={index}
+                className={`absolute text-4xl md:text-6xl lg:text-7xl font-bold leading-tight transition-all duration-700 ${
+                  currentSlide === index 
+                    ? 'opacity-100 transform-none' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+              >
+                <span className="text-skye-red">{headline}</span>
+              </h1>
+            ))}
           </div>
 
           <div
@@ -51,7 +77,7 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <p className="text-white/70 text-lg md:text-xl">
+            <p className="text-white/70 text-lg md:text-xl mt-6">
               We empower top brands to leverage AI for exponential growth, 
               combining cutting-edge technology with exceptional design and marketing expertise.
             </p>
@@ -79,8 +105,26 @@ const Hero = () => {
               className="border-white/20 text-white hover:bg-white/10 px-8 py-6"
               size="lg"
             >
-              <a href="#services">Explore Services</a>
+              <a href="#case-studies">See Our Work</a>
             </Button>
+          </div>
+          
+          {/* Stats */}
+          <div className={`mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/10 pt-8 transition-all duration-1000 delay-1000 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <div>
+              <p className="text-skye-red text-3xl md:text-4xl font-bold">93%</p>
+              <p className="text-white/60 text-sm">Client retention rate</p>
+            </div>
+            <div>
+              <p className="text-skye-red text-3xl md:text-4xl font-bold">140+</p>
+              <p className="text-white/60 text-sm">Projects delivered</p>
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <p className="text-skye-red text-3xl md:text-4xl font-bold">35%</p>
+              <p className="text-white/60 text-sm">Average ROI increase</p>
+            </div>
           </div>
         </div>
       </div>
