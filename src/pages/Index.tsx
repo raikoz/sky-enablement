@@ -94,8 +94,14 @@ const Index = () => {
         }`}
       >
         <div className="relative mb-12">
-          <div className="w-24 h-24 relative">
-            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-sans">SKYE</span>
+          <div className="w-32 h-32 relative">
+            {/* Modern, minimal logo */}
+            <span className="font-mono text-5xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <span className="text-white">S</span>
+              <span className="text-skye-red">K</span>
+              <span className="text-white">Y</span>
+              <span className="text-skye-red">E</span>
+            </span>
           </div>
         </div>
         <div className="w-48 h-0.5 overflow-hidden">
@@ -110,7 +116,7 @@ const Index = () => {
         style={{ transition: 'transform 0.1s cubic-bezier(0.19, 1, 0.22, 1)' }}
       ></div>
 
-      {/* Subtle grid background */}
+      {/* Minimal grid background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 kriss-grid opacity-5"></div>
       </div>
@@ -129,8 +135,8 @@ const Index = () => {
       <Footer />
       
       {/* Minimal corner design elements */}
-      <div className="fixed bottom-0 left-0 border-b border-l border-skye-red/5 w-20 h-20 z-40"></div>
-      <div className="fixed top-0 right-0 border-t border-r border-skye-red/5 w-20 h-20 z-40"></div>
+      <div className="fixed bottom-0 left-0 border-b border-l border-white/5 w-20 h-20 z-40"></div>
+      <div className="fixed top-0 right-0 border-t border-r border-skye-red/10 w-20 h-20 z-40"></div>
     </div>
   );
 };
