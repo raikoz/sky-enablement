@@ -8,7 +8,6 @@ import CaseStudies from "@/components/CaseStudies";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import SkyeChatBot from "@/components/SkyChatBot";
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<string>('hero');
@@ -60,10 +59,9 @@ const Index = () => {
       const sections = document.querySelectorAll('section:not(.footer-section)');
       const viewportHeight = window.innerHeight;
       
-      sections.forEach((section) => {
-        const htmlElement = section as HTMLElement;
-        htmlElement.style.height = `${viewportHeight}px`;
-        htmlElement.style.minHeight = `${viewportHeight}px`;
+      sections.forEach(section => {
+        section.style.height = `${viewportHeight}px`;
+        section.style.minHeight = `${viewportHeight}px`;
       });
     };
     
@@ -127,9 +125,6 @@ const Index = () => {
       </main>
       
       <Footer />
-      
-      {/* Chatbot */}
-      <SkyeChatBot />
       
       {/* Minimal corner design elements */}
       <div className="fixed bottom-0 left-0 border-b border-l border-skye-red/5 w-20 h-20 z-40"></div>

@@ -1,44 +1,56 @@
 
 import { useState, useEffect } from 'react';
-import { Search, Lightbulb, Rocket, ArrowRight } from 'lucide-react';
+import { Brain, Zap, Database, Layers, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const services = [
   {
-    icon: Search,
-    title: 'Identify',
-    description: 'We spot the mess before we bring the magic.',
-    details: 'From bottlenecks to blind spots, we help you pinpoint exactly where AI can make life easier, faster, and way less human-error-y.',
+    icon: Brain,
+    title: 'AI Strategy',
+    description: 'Develop a comprehensive AI roadmap that aligns with your business goals and maximizes growth opportunities.',
     link: '#contact',
     features: [
-      'Spot automation opportunities across your workflows',
-      'Map tasks that are costing time, money, and sanity',
-      'Uncover high-impact AI use cases specific to your business'
+      'AI readiness assessment',
+      'Strategic implementation planning',
+      'ROI forecasting and analysis',
+      'Competitive positioning'
     ]
   },
   {
-    icon: Lightbulb,
-    title: 'Educate',
-    description: 'Your team won't just use AI—they'll get it.',
-    details: 'We train your people to stop fearing the bots and start collaborating with them like pros. Yes, even Janet from HR.',
+    icon: Zap,
+    title: 'Implementation',
+    description: 'Seamlessly integrate AI solutions into your existing infrastructure with our expert technical team.',
     link: '#contact',
     features: [
-      'Hands-on AI workshops tailored to each department',
-      'AI literacy sessions for non-tech teams (no jargon, we promise)',
-      'Strategy walkthroughs so leadership knows what's coming (and why)'
+      'System architecture design',
+      'API and platform integration',
+      'Custom AI solution development',
+      'Deployment and testing'
     ]
   },
   {
-    icon: Rocket,
-    title: 'Implement',
-    description: 'From "what if" to "done and deployed."',
-    details: 'We don't hand you a PDF and wish you luck. We build, test, and plug in custom AI bots that get to work across your operations.',
+    icon: Database,
+    title: 'Data Engineering',
+    description: 'Transform raw data into valuable insights with our advanced data processing and analytics solutions.',
     link: '#contact',
     features: [
-      'Build custom AI tools for HR, IT, Sales, and Marketing',
-      'Integrate with your current systems (no overhaul required)',
-      'Monitor and fine-tune to keep things smooth and scalable'
+      'Data pipeline construction',
+      'ETL process optimization',
+      'Business intelligence dashboards',
+      'Predictive analytics models'
+    ]
+  },
+  {
+    icon: Layers,
+    title: 'Brand Enhancement',
+    description: 'Elevate your brand identity through AI-powered design and marketing strategies that resonate with your audience.',
+    link: '#contact',
+    features: [
+      'AI-driven market research',
+      'Personalization engines',
+      'Customer journey optimization',
+      'Conversion rate enhancement'
     ]
   }
 ];
@@ -88,16 +100,20 @@ const Services = () => {
           <div className="inline-block relative mb-6 kriss-reveal">
             <span className="text-sm tracking-wider uppercase text-white/50">Our Expertise</span>
           </div>
-          <h2 className="text-3xl md:text-7xl font-bold mb-6 relative kriss-text">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 relative kriss-text">
             AI-Powered <span className="text-skye-red">Services</span>
           </h2>
+          <p className="text-white/60 relative kriss-text">
+            We offer comprehensive AI solutions that transform how brands operate, 
+            engage with customers, and stay ahead in today's rapidly evolving digital landscape.
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <Card 
               key={index}
-              className={`bg-black border-white/5 transition-all duration-700 kriss-3d-hover min-h-[500px] ${
+              className={`bg-black border-white/5 transition-all duration-700 kriss-3d-hover ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
               style={{ 
@@ -114,35 +130,36 @@ const Services = () => {
                   <service.icon className="h-6 w-6 text-skye-red relative z-10" />
                   <div className="absolute inset-0 bg-skye-red/5 -z-10 rounded-sm"></div>
                 </div>
-                <CardTitle className="text-4xl md:text-6xl font-bold mb-4">
+                <CardTitle className="text-xl flex items-center">
                   <span className="mr-2">{service.title}</span>
                   {activeCardIndex === index && (
                     <span className="inline-block h-3 w-0.5 bg-skye-red animate-text-flicker"></span>
                   )}
                 </CardTitle>
-                <CardDescription className="text-xl text-white mb-3">
-                  {service.description}
-                </CardDescription>
-                <p className="text-white/70 text-lg">
-                  {service.details}
-                </p>
               </CardHeader>
               <CardContent className="space-y-4 relative z-10">
-                <div className="space-y-2 pt-4">
-                  <ul className="space-y-4">
+                <CardDescription className="text-white/50">
+                  {service.description}
+                </CardDescription>
+                
+                {/* Features list that appears on hover */}
+                <div className={`space-y-2 transition-all duration-500 ${
+                  hoveredIndex === index ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                }`}>
+                  <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-skye-red mr-2 text-lg">✅</span>
-                        <span className="text-lg text-white/80">{feature}</span>
+                        <span className="text-skye-red mr-2 opacity-50">—</span>
+                        <span className="text-sm text-white/60">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="pt-6">
+                <div className="pt-2">
                   <Button asChild variant="link" className="text-skye-red p-0 hover:text-skye-red/80 kriss-button">
                     <a href={service.link} className="flex items-center gap-1">
-                      Get Started 
+                      Learn More 
                       <ArrowRight size={16} className="transition-transform duration-300 translate-x-0 group-hover:translate-x-2" />
                     </a>
                   </Button>
@@ -156,8 +173,8 @@ const Services = () => {
         <div className={`mt-24 border border-white/5 rounded-none p-12 transition-all duration-1000 delay-500 relative ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="text-left">
-              <h3 className="text-2xl md:text-4xl font-bold mb-2">Ready to transform your business?</h3>
-              <p className="text-white/50 max-w-2xl text-lg">
+              <h3 className="text-2xl font-light mb-2">Ready to transform your business?</h3>
+              <p className="text-white/50 max-w-2xl text-sm">
                 Schedule a consultation with our experts and discover how our services can drive growth and innovation for your brand.
               </p>
             </div>
