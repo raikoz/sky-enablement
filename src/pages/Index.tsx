@@ -26,7 +26,7 @@ const Index = () => {
       setMouseCursor({ x: e.clientX, y: e.clientY });
     };
 
-    // Scroll tracking for section highlighting
+    // Scroll tracking for section highlighting and snap scrolling
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -34,7 +34,7 @@ const Index = () => {
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
-        const sectionId = section.id || section.querySelector('[id]')?.id || '';
+        const sectionId = section.id || '';
 
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight && sectionId) {
           setCurrentSection(sectionId);
@@ -54,15 +54,14 @@ const Index = () => {
       });
     }, 500);
     
-    // Adjust section heights
+    // Set exact viewport height for each section
     const adjustSectionHeights = () => {
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll('section:not(.footer-section)');
       const viewportHeight = window.innerHeight;
       
       sections.forEach(section => {
-        if (!section.classList.contains('footer-section')) {
-          section.style.minHeight = `${viewportHeight}px`;
-        }
+        section.style.height = `${viewportHeight}px`;
+        section.style.minHeight = `${viewportHeight}px`;
       });
     };
     
@@ -85,7 +84,7 @@ const Index = () => {
   }, [mouseCursor]);
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-hidden">
+    <div className="bg-black text-white overflow-hidden">
       {/* Loading overlay */}
       <div 
         className={`fixed inset-0 z-50 bg-black flex flex-col items-center justify-center transition-opacity duration-1000 ${
@@ -94,7 +93,7 @@ const Index = () => {
       >
         <div className="relative mb-12">
           <div className="w-24 h-24 relative">
-            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-mono">SKYE</span>
+            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-sans">SKYE</span>
           </div>
         </div>
         <div className="w-48 h-0.5 overflow-hidden">
@@ -116,7 +115,7 @@ const Index = () => {
 
       <Navbar currentSection={currentSection} />
       
-      <main className="relative z-10">
+      <main className="relative z-10 snap-y snap-mandatory">
         <Hero />
         <Services />
         <About />
