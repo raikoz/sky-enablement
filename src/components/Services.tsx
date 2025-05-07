@@ -114,26 +114,25 @@ const Services = () => {
                   <service.icon className="h-6 w-6 text-skye-red relative z-10" />
                   <div className="absolute inset-0 bg-skye-red/5 -z-10 rounded-sm"></div>
                 </div>
-                <CardTitle className="text-4xl md:text-6xl font-bold mb-4">
+                <CardTitle className="text-3xl md:text-5xl font-bold mb-4">
                   <span className="mr-2">{service.title}</span>
                   {activeCardIndex === index && (
                     <span className="inline-block h-3 w-0.5 bg-skye-red animate-text-flicker"></span>
                   )}
                 </CardTitle>
-                <CardDescription className="text-xl text-white mb-3">
+                <CardDescription className="text-lg text-white mb-3">
                   {service.description}
                 </CardDescription>
-                <p className="text-white/70 text-lg">
+                <p className="text-white/70 text-base">
                   {service.details}
                 </p>
               </CardHeader>
               <CardContent className="space-y-4 relative z-10">
                 <div className="space-y-2 pt-4">
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-skye-red mr-2 text-lg">✅</span>
-                        <span className="text-lg text-white/80">{feature}</span>
+                        <span className="text-base text-white/80">{feature}</span>
                       </li>
                     ))}
                   </ul>
