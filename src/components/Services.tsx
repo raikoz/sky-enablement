@@ -20,20 +20,20 @@ const services = [
   {
     icon: Lightbulb,
     title: 'Educate',
-    description: 'Your team won't just use AI—they'll get it.',
-    details: 'We train your people to stop fearing the bots and start collaborating with them like pros. Yes, even Janet from HR.',
+    description: "Your team won't just use AI—they'll get it.",
+    details: "We train your people to stop fearing the bots and start collaborating with them like pros. Yes, even Janet from HR.",
     link: '#contact',
     features: [
       'Hands-on AI workshops tailored to each department',
       'AI literacy sessions for non-tech teams (no jargon, we promise)',
-      'Strategy walkthroughs so leadership knows what's coming (and why)'
+      "Strategy walkthroughs so leadership knows what's coming (and why)"
     ]
   },
   {
     icon: Rocket,
     title: 'Implement',
     description: 'From "what if" to "done and deployed."',
-    details: 'We don't hand you a PDF and wish you luck. We build, test, and plug in custom AI bots that get to work across your operations.',
+    details: "We don't hand you a PDF and wish you luck. We build, test, and plug in custom AI bots that get to work across your operations.",
     link: '#contact',
     features: [
       'Build custom AI tools for HR, IT, Sales, and Marketing',
