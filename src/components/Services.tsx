@@ -8,37 +8,37 @@ const services = [
   {
     icon: Search,
     title: 'Identify',
-    description: 'We spot the mess before we bring the magic.',
-    details: 'From bottlenecks to blind spots, we help you pinpoint exactly where AI can make life easier, faster, and way less human-error-y.',
+    description: 'We spot opportunities before we bring the magic.',
+    details: 'We help pinpoint where AI can make your business more efficient.',
     link: '#contact',
     features: [
-      'Spot automation opportunities across your workflows',
-      'Map tasks that are costing time, money, and sanity',
-      'Uncover high-impact AI use cases specific to your business'
+      'Spot automation opportunities',
+      'Map resource-intensive tasks',
+      'Uncover high-impact AI use cases'
     ]
   },
   {
     icon: Lightbulb,
     title: 'Educate',
     description: "Your team won't just use AI—they'll get it.",
-    details: "We train your people to stop fearing the bots and start collaborating with them like pros. Yes, even Janet from HR.",
+    details: "We train your people to collaborate with AI tools effectively.",
     link: '#contact',
     features: [
-      'Hands-on AI workshops tailored to each department',
-      'AI literacy sessions for non-tech teams (no jargon, we promise)',
-      "Strategy walkthroughs so leadership knows what's coming (and why)"
+      'AI workshops for each department',
+      'Jargon-free sessions for non-tech teams',
+      'Strategy guides for leadership'
     ]
   },
   {
     icon: Rocket,
     title: 'Implement',
     description: 'From "what if" to "done and deployed."',
-    details: "We don't hand you a PDF and wish you luck. We build, test, and plug in custom AI bots that get to work across your operations.",
+    details: "We build, test, and integrate custom AI solutions into your workflow.",
     link: '#contact',
     features: [
-      'Build custom AI tools for HR, IT, Sales, and Marketing',
-      'Integrate with your current systems (no overhaul required)',
-      'Monitor and fine-tune to keep things smooth and scalable'
+      'Custom AI tools for your departments',
+      'Seamless integration with existing systems',
+      'Ongoing monitoring and optimization'
     ]
   }
 ];
@@ -114,16 +114,16 @@ const Services = () => {
                   <service.icon className="h-6 w-6 text-skye-red relative z-10" />
                   <div className="absolute inset-0 bg-skye-red/5 -z-10 rounded-sm"></div>
                 </div>
-                <CardTitle className="text-3xl md:text-5xl font-bold mb-4">
+                <CardTitle className="text-2xl md:text-3xl font-bold mb-3">
                   <span className="mr-2">{service.title}</span>
                   {activeCardIndex === index && (
                     <span className="inline-block h-3 w-0.5 bg-skye-red animate-text-flicker"></span>
                   )}
                 </CardTitle>
-                <CardDescription className="text-lg text-white mb-3">
+                <CardDescription className="text-base text-white mb-3">
                   {service.description}
                 </CardDescription>
-                <p className="text-white/70 text-base">
+                <p className="text-white/70 text-sm">
                   {service.details}
                 </p>
               </CardHeader>
@@ -132,7 +132,7 @@ const Services = () => {
                   <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-base text-white/80">{feature}</span>
+                        <span className="text-sm text-white/80">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -157,7 +157,7 @@ const Services = () => {
             <div className="text-left">
               <h3 className="text-2xl md:text-4xl font-bold mb-2">Ready to transform your business?</h3>
               <p className="text-white/50 max-w-2xl text-lg">
-                Schedule a consultation with our experts and discover how our services can drive growth and innovation for your brand.
+                Schedule a consultation with our experts and discover how our services can drive growth for your brand.
               </p>
             </div>
             <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill whitespace-nowrap relative overflow-hidden">
