@@ -60,8 +60,10 @@ const Index = () => {
       const viewportHeight = window.innerHeight;
       
       sections.forEach(section => {
-        section.style.height = `${viewportHeight}px`;
-        section.style.minHeight = `${viewportHeight}px`;
+        // Type assertion to HTMLElement to fix the TypeScript error
+        const htmlSection = section as HTMLElement;
+        htmlSection.style.height = `${viewportHeight}px`;
+        htmlSection.style.minHeight = `${viewportHeight}px`;
       });
     };
     
