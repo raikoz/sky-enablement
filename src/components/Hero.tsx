@@ -1,6 +1,6 @@
 
 import { useEffect, useState, useRef } from 'react';
-import { ArrowRight, Zap, Brain } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -53,11 +53,12 @@ const Hero = () => {
     }));
   };
 
-  const particles = generateRandomParticles(40); // Reduced particle count
+  const particles = generateRandomParticles(30);
 
   return (
     <section 
       ref={heroRef}
+      id="hero"
       className="relative h-screen flex flex-col justify-center overflow-hidden"
     >
       {/* Digital particles background */}
@@ -82,7 +83,7 @@ const Hero = () => {
       
       {/* Red dynamic gradient background */}
       <div 
-        className="absolute top-0 right-0 w-1/2 h-screen blur-3xl rounded-full opacity-50"
+        className="absolute top-0 right-0 w-1/2 h-screen blur-3xl rounded-full opacity-30"
         style={{ 
           background: `radial-gradient(circle, rgba(234, 56, 76, 0.2) 0%, rgba(0, 0, 0, 0) 70%)`, 
           transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)`,
@@ -91,21 +92,21 @@ const Hero = () => {
       ></div>
       
       {/* Animated grid background */}
-      <div className="absolute inset-0 animated-bg-grid opacity-20"></div>
+      <div className="absolute inset-0 animated-bg-grid opacity-10"></div>
       
       {/* Noise texture overlay */}
       <div className="noise-filter"></div>
       
       {/* Hero content */}
-      <div className="container relative z-20 mt-16 px-4 max-w-6xl mx-auto">
-        <div className="max-w-2xl mx-auto md:ml-0">
+      <div className="container relative z-20 px-4 max-w-5xl mx-auto">
+        <div className="max-w-xl mx-auto md:mx-0">
           {/* Animated badge */}
           <div className={`inline-flex items-center bg-black/30 backdrop-blur-md border border-skye-red/10 rounded-full px-4 py-1.5 mb-6 transition-all duration-1000 animate-float ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <span className="flex h-2 w-2 rounded-full bg-skye-red animate-pulse-glow mr-2"></span>
             <span className="text-sm font-medium text-white/90">
-              <span className="animate-text-flicker">AI Powered</span> Solutions
+              AI Solutions
             </span>
           </div>
         
@@ -114,18 +115,18 @@ const Hero = () => {
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight">
               <span className="inline-block overflow-hidden relative text-reveal">
                 AI Enablement for
               </span>
             </h1>
           </div>
 
-          <div className="h-[60px] md:h-[80px] lg:h-[100px] overflow-hidden relative">
+          <div className="h-[60px] md:h-[70px] overflow-hidden relative">
             {headlines.map((headline, index) => (
               <h1 
                 key={index}
-                className={`absolute text-3xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 ${
+                className={`absolute text-3xl md:text-4xl lg:text-5xl font-bold leading-tight transition-all duration-700 ${
                   currentSlide === index 
                     ? 'opacity-100 transform-none' 
                     : 'opacity-0 translate-y-8'
@@ -141,9 +142,8 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <p className="text-white/80 text-base md:text-lg mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
-              We empower top brands to leverage AI for exponential growth, 
-              combining cutting-edge technology with exceptional design.
+            <p className="text-white/80 text-base mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
+              Empowering brands to leverage AI for exceptional growth and innovation.
             </p>
           </div>
           
@@ -154,7 +154,7 @@ const Hero = () => {
           >
             <Button
               asChild
-              className="bg-skye-red hover:bg-skye-red/90 text-white px-8 py-6 rounded-md flex items-center gap-2 group relative overflow-hidden digital-scan"
+              className="bg-skye-red hover:bg-skye-red/90 text-white px-6 py-5 rounded-md flex items-center gap-2 group relative overflow-hidden digital-scan"
               size="lg"
             >
               <a href="#contact">
@@ -163,21 +163,6 @@ const Hero = () => {
                   Get Started
                   <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
-              </a>
-            </Button>
-            
-            <Button
-              asChild
-              variant="outline"
-              className="border-skye-red/30 text-white hover:bg-white/10 px-8 py-6 relative overflow-hidden group"
-              size="lg"
-            >
-              <a href="#case-studies">
-                <span className="relative z-10 flex items-center gap-2">
-                  <Brain size={18} />
-                  See Our Work
-                </span>
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-skye-red/50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </a>
             </Button>
           </div>
@@ -213,7 +198,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-30">
         <div className="w-0.5 h-16 bg-gradient-to-b from-transparent to-skye-red/80 animate-pulse-glow"></div>
-        <span className="text-white/60 text-xs mt-2 animate-text-flicker">EXPLORE</span>
+        <span className="text-white/60 text-xs mt-2 animate-text-flicker">SCROLL</span>
       </div>
     </section>
   );
