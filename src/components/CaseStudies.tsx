@@ -12,7 +12,7 @@ export const caseStudies = [
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
     client: 'RetailPlus',
     challenge: 'Struggling with customer engagement and personalized experiences in a crowded marketplace',
-    quote: 'SKYE helped us leverage AI to transform our customer experience, resulting in a significant boost to our engagement metrics and sales.',
+    quote: "SKYE helped us leverage AI to transform our customer experience, resulting in a significant boost to our engagement metrics and sales.",
     quoteAuthor: 'Sarah Johnson, CEO',
     results: [
       '45% increase in customer engagement',
@@ -33,7 +33,7 @@ export const caseStudies = [
     image: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80',
     client: 'SecureBank International',
     challenge: 'High fraud rates and inefficient risk assessment processes costing millions annually',
-    quote: 'The AI solution from SKYE revolutionized our fraud detection capabilities. We're now operating with unprecedented efficiency and security.',
+    quote: "The AI solution from SKYE revolutionized our fraud detection capabilities. We're now operating with unprecedented efficiency and security.",
     quoteAuthor: 'Michael Chen, CTO',
     results: [
       '60% reduction in fraud incidents',
@@ -54,7 +54,7 @@ export const caseStudies = [
     image: 'https://images.unsplash.com/photo-1527576539890-dfa815648363?auto=format&fit=crop&w=800&q=80',
     client: 'MedLife Systems',
     challenge: 'Poor resource allocation and inability to predict patient loads leading to staffing issues',
-    quote: 'SKYE's AI prediction model transformed our resource planning. We now operate with precision we never thought possible.',
+    quote: "SKYE's AI prediction model transformed our resource planning. We now operate with precision we never thought possible.",
     quoteAuthor: 'Dr. Emily Roberts, Hospital Director',
     results: [
       '32% improvement in resource allocation efficiency',
