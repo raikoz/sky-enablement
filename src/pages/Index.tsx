@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from 'react';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import VideoSection from "@/components/VideoSection";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import CaseStudies from "@/components/CaseStudies";
@@ -128,7 +127,7 @@ const Index = () => {
       {/* Custom cursor */}
       <div 
         ref={cursorRef} 
-        className="fixed w-8 h-8 border border-skye-red rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-8 h-8 border border-skye-red rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
         style={{ transition: 'transform 0.1s cubic-bezier(0.19, 1, 0.22, 1)' }}
       ></div>
 
@@ -141,7 +140,6 @@ const Index = () => {
       
       <main className="relative z-10 snap-y snap-mandatory">
         <Hero />
-        <VideoSection />
         <Services />
         <About />
         <CaseStudies />

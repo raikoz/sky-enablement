@@ -2,12 +2,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     setIsLoaded(true);
@@ -19,8 +21,10 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
   
-  // Parallax effect
+  // Parallax effect - only on desktop
   useEffect(() => {
+    if (isMobile) return;
+    
     const handleMouseMove = (e: MouseEvent) => {
       if (heroRef.current) {
         const { clientX, clientY } = e;
@@ -33,10 +37,10 @@ const Hero = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
   const scrollToNextSection = () => {
-    const nextSection = document.getElementById('video-section');
+    const nextSection = document.getElementById('services');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -60,7 +64,7 @@ const Hero = () => {
     }));
   };
 
-  const particles = generateRandomParticles(30);
+  const particles = generateRandomParticles(isMobile ? 15 : 30);
 
   return (
     <section 
@@ -93,7 +97,7 @@ const Hero = () => {
         className="absolute top-0 right-0 w-1/2 h-screen blur-3xl rounded-full opacity-30"
         style={{ 
           background: `radial-gradient(circle, rgba(234, 56, 76, 0.2) 0%, rgba(0, 0, 0, 0) 70%)`, 
-          transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)`,
+          transform: !isMobile ? `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)` : 'none',
           transition: 'transform 0.1s ease-out'
         }}
       ></div>
@@ -122,18 +126,18 @@ const Hero = () => {
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight">
               <span className="inline-block overflow-hidden relative text-reveal">
                 AI Enablement for
               </span>
             </h1>
           </div>
 
-          <div className="h-[60px] md:h-[70px] overflow-hidden relative">
+          <div className="h-[50px] sm:h-[60px] md:h-[70px] overflow-hidden relative">
             {headlines.map((headline, index) => (
               <h1 
                 key={index}
-                className={`absolute text-3xl md:text-4xl lg:text-5xl font-bold leading-tight transition-all duration-700 ${
+                className={`absolute text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight transition-all duration-700 ${
                   currentSlide === index 
                     ? 'opacity-100 transform-none' 
                     : 'opacity-0 translate-y-8'
@@ -149,7 +153,7 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <p className="text-white/80 text-base mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
+            <p className="text-white/80 text-sm sm:text-base mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
               Empowering brands to leverage AI for exceptional growth and innovation.
             </p>
           </div>
@@ -161,7 +165,7 @@ const Hero = () => {
           >
             <Button
               asChild
-              className="bg-skye-red hover:bg-skye-red/90 text-white px-6 py-5 rounded-md flex items-center gap-2 group relative overflow-hidden digital-scan"
+              className="bg-skye-red hover:bg-skye-red/90 text-white px-4 sm:px-6 py-4 sm:py-5 rounded-md flex items-center gap-2 group relative overflow-hidden digital-scan"
               size="lg"
             >
               <a href="#contact">
@@ -177,7 +181,7 @@ const Hero = () => {
             <Button
               asChild
               variant="outline"
-              className="border border-skye-red/50 hover:bg-skye-red/10 text-white px-6 py-5 rounded-md"
+              className="border border-skye-red/50 hover:bg-skye-red/10 text-white px-4 sm:px-6 py-4 sm:py-5 rounded-md"
               size="lg"
             >
               <a 
@@ -208,7 +212,7 @@ const Hero = () => {
           className="absolute bottom-0 right-0 w-full md:w-auto h-full object-cover opacity-60 transition-transform duration-200"
           style={{ 
             clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)',
-            transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)` 
+            transform: !isMobile ? `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)` : 'none'
           }}
         />
         {/* Digital scan effect */}

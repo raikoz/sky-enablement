@@ -1,15 +1,16 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Quote, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { caseStudies } from '@/components/CaseStudies';
 import Footer from '@/components/Footer';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const CaseStudyDetail = () => {
   const { id } = useParams();
   const studyId = parseInt(id || '1');
   const study = caseStudies.find(s => s.id === studyId) || caseStudies[0];
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,7 +33,7 @@ const CaseStudyDetail = () => {
       </div>
       
       {/* Hero section */}
-      <section className="pt-32 pb-20 relative">
+      <section className="pt-32 pb-16 md:pb-20 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black to-black z-10"></div>
           <img 
@@ -43,14 +44,14 @@ const CaseStudyDetail = () => {
         </div>
         
         <div className="container relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl px-4 md:px-0">
             <div className="mb-4">
-              <span className="px-4 py-1.5 bg-skye-red/90 text-sm rounded-md text-white">
+              <span className="px-3 py-1 bg-skye-red/90 text-sm rounded-md text-white">
                 {study.category}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{study.title}</h1>
-            <p className="text-xl text-white/80 mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{study.title}</h1>
+            <p className="text-lg md:text-xl text-white/80 mb-8">
               {study.description}
             </p>
           </div>
@@ -58,18 +59,18 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* Client and Challenge */}
-      <section className="py-16 bg-black relative">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-black/40 backdrop-blur-sm border border-white/5 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-4">The Client</h3>
-              <p className="text-lg text-white/80 mb-4">
+      <section className="py-12 md:py-16 bg-black relative">
+        <div className="container px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="bg-black/40 backdrop-blur-sm border border-white/5 p-6 md:p-8 rounded-lg">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">The Client</h3>
+              <p className="text-base md:text-lg text-white/80 mb-4">
                 {study.client}
               </p>
             </div>
-            <div className="bg-black/40 backdrop-blur-sm border border-white/5 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-4">The Challenge</h3>
-              <p className="text-lg text-white/80">
+            <div className="bg-black/40 backdrop-blur-sm border border-white/5 p-6 md:p-8 rounded-lg">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">The Challenge</h3>
+              <p className="text-base md:text-lg text-white/80">
                 {study.challenge}
               </p>
             </div>
@@ -78,11 +79,11 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* Quote */}
-      <section className="py-24 bg-skye-red/5 relative">
-        <div className="container">
+      <section className="py-16 md:py-24 bg-skye-red/5 relative">
+        <div className="container px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <Quote className="h-12 w-12 text-skye-red/50 mx-auto mb-8" />
-            <blockquote className="text-2xl md:text-3xl font-medium mb-8 italic">
+            <Quote className="h-8 w-8 md:h-12 md:w-12 text-skye-red/50 mx-auto mb-6 md:mb-8" />
+            <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium mb-6 md:mb-8 italic">
               "{study.quote}"
             </blockquote>
             <div className="flex flex-col items-center">
@@ -94,18 +95,18 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* Results */}
-      <section className="py-24 relative">
-        <div className="container">
+      <section className="py-16 md:py-24 relative">
+        <div className="container px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center">
               Results <span className="text-skye-red">& Impact</span>
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {study.results.map((result, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <CheckCircle className="h-6 w-6 text-skye-red flex-shrink-0 mt-0.5" />
-                  <p className="text-lg">{result}</p>
+                <div key={index} className="flex items-start gap-3 md:gap-4 p-3 md:p-4 border border-white/10 rounded-lg bg-white/5">
+                  <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-skye-red flex-shrink-0 mt-0.5" />
+                  <p className="text-base md:text-lg">{result}</p>
                 </div>
               ))}
             </div>
@@ -114,13 +115,13 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* Design Showcase */}
-      <section className="py-24 bg-black/30 relative">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <section className="py-16 md:py-24 bg-black/30 relative">
+        <div className="container px-4 md:px-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center">
             Solution <span className="text-skye-red">Showcase</span>
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {study.designImages.map((image, index) => (
               <div key={index} className="overflow-hidden rounded-lg">
                 <img 
@@ -135,26 +136,26 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* CTA section */}
-      <section className="py-24 relative">
-        <div className="container">
+      <section className="py-16 md:py-24 relative">
+        <div className="container px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
               Ready to transform your business with AI?
             </h2>
-            <p className="text-white/70 mb-8">
+            <p className="text-white/70 mb-6 md:mb-8">
               Let's discuss how SKYE can help you achieve similar results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 asChild 
-                className="bg-skye-red hover:bg-skye-red/90 text-white px-8 py-6 rounded-md"
+                className="bg-skye-red hover:bg-skye-red/90 text-white px-6 py-5 rounded-md"
               >
                 <Link to="/#contact">Contact Us Today</Link>
               </Button>
               <Button 
                 asChild 
                 variant="outline"
-                className="border border-skye-red/50 hover:bg-skye-red/10 text-white px-8 py-6 rounded-md"
+                className="border border-skye-red/50 hover:bg-skye-red/10 text-white px-6 py-5 rounded-md"
               >
                 <a 
                   href="https://preview--insight-assessment-compass.lovable.app/" 
@@ -170,15 +171,16 @@ const CaseStudyDetail = () => {
       </section>
       
       {/* Other Case Studies */}
-      <section className="py-24 bg-black/40 relative">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12 text-center">
+      <section className="py-16 md:py-24 bg-black/40 relative">
+        <div className="container px-4 md:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
             Explore More <span className="text-skye-red">Case Studies</span>
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {caseStudies
               .filter(s => s.id !== studyId)
+              .slice(0, isMobile ? 2 : 3)
               .map((otherStudy) => (
                 <div key={otherStudy.id} className="group relative overflow-hidden rounded-lg">
                   {/* Image */}
@@ -193,13 +195,13 @@ const CaseStudyDetail = () => {
                   </div>
                   
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                     <div className="mb-2">
-                      <span className="px-3 py-1 bg-skye-red/90 text-xs rounded-full text-white">
+                      <span className="px-2 md:px-3 py-1 bg-skye-red/90 text-xs rounded-full text-white">
                         {otherStudy.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{otherStudy.title}</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{otherStudy.title}</h3>
                     <Button variant="link" className="text-skye-red p-0 flex items-center gap-2">
                       <Link to={`/case-study/${otherStudy.id}`} className="flex items-center gap-2">
                         Read Case Study <ArrowRight size={16} />
