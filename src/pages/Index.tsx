@@ -9,12 +9,14 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SkyeChatBot from "@/components/SkyChatBot";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<string>('hero');
   const [isLoading, setIsLoading] = useState(true);
   const [mouseCursor, setMouseCursor] = useState({ x: 0, y: 0 });
   const cursorRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Loading animation
@@ -61,7 +63,9 @@ const Index = () => {
     }
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    if (!isMobile) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
     handleScroll(); // Check on mount
     
     // Reveal animations on load
@@ -72,15 +76,21 @@ const Index = () => {
       });
     }, 500);
     
-    // Set exact viewport height for each section
+    // Set viewport height for each section - different handling for mobile
     const adjustSectionHeights = () => {
       const sections = document.querySelectorAll('section:not(.footer-section)');
       const viewportHeight = window.innerHeight;
       
       sections.forEach((section) => {
         const htmlElement = section as HTMLElement;
-        htmlElement.style.height = `${viewportHeight}px`;
-        htmlElement.style.minHeight = `${viewportHeight}px`;
+        if (!isMobile) {
+          htmlElement.style.height = `${viewportHeight}px`;
+          htmlElement.style.minHeight = `${viewportHeight}px`;
+        } else {
+          // For mobile, use auto height to properly show all content
+          htmlElement.style.height = 'auto';
+          htmlElement.style.minHeight = `${viewportHeight}px`;
+        }
       });
     };
     
@@ -90,21 +100,23 @@ const Index = () => {
     return () => {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (!isMobile) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
       window.removeEventListener('resize', adjustSectionHeights);
       
       if (scrollIndicator) {
         scrollIndicator.removeEventListener('click', handleScrollIndicatorClick);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     // Update custom cursor position with smooth animation
-    if (cursorRef.current) {
+    if (cursorRef.current && !isMobile) {
       cursorRef.current.style.transform = `translate(${mouseCursor.x - 16}px, ${mouseCursor.y - 16}px)`;
     }
-  }, [mouseCursor]);
+  }, [mouseCursor, isMobile]);
 
   return (
     <div className="bg-black text-white overflow-hidden">
@@ -124,12 +136,14 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Custom cursor */}
-      <div 
-        ref={cursorRef} 
-        className="fixed w-8 h-8 border border-skye-red rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
-        style={{ transition: 'transform 0.1s cubic-bezier(0.19, 1, 0.22, 1)' }}
-      ></div>
+      {/* Custom cursor - only on desktop */}
+      {!isMobile && (
+        <div 
+          ref={cursorRef} 
+          className="fixed w-8 h-8 border border-skye-red rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
+          style={{ transition: 'transform 0.1s cubic-bezier(0.19, 1, 0.22, 1)' }}
+        ></div>
+      )}
 
       {/* Subtle grid background */}
       <div className="fixed inset-0 z-0">
@@ -138,7 +152,7 @@ const Index = () => {
 
       <Navbar currentSection={currentSection} />
       
-      <main className="relative z-10 snap-y snap-mandatory">
+      <main className="relative z-10 md:snap-y md:snap-mandatory">
         <Hero />
         <Services />
         <About />
@@ -153,8 +167,8 @@ const Index = () => {
       <SkyeChatBot />
       
       {/* Minimal corner design elements */}
-      <div className="fixed bottom-0 left-0 border-b border-l border-skye-red/5 w-20 h-20 z-40"></div>
-      <div className="fixed top-0 right-0 border-t border-r border-skye-red/5 w-20 h-20 z-40"></div>
+      <div className="fixed bottom-0 left-0 border-b border-l border-skye-red/5 w-12 md:w-20 h-12 md:h-20 z-40"></div>
+      <div className="fixed top-0 right-0 border-t border-r border-skye-red/5 w-12 md:w-20 h-12 md:h-20 z-40"></div>
     </div>
   );
 };

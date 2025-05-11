@@ -2,6 +2,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export const caseStudies = [
   {
@@ -70,11 +71,13 @@ export const caseStudies = [
 ];
 
 const CaseStudies = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section id="case-studies" className="py-24 relative">
-      <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    <section id="case-studies" className="py-16 md:py-24 relative">
+      <div className="container px-4 md:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Case <span className="text-skye-red">Studies</span>
           </h2>
           <p className="text-white/70">
@@ -83,7 +86,7 @@ const CaseStudies = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {caseStudies.map((study) => (
             <div key={study.id} className="group relative overflow-hidden rounded-lg">
               {/* Image */}
@@ -92,20 +95,21 @@ const CaseStudies = () => {
                   src={study.image} 
                   alt={study.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-80"></div>
               </div>
               
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 group-hover:translate-y-0">
+              <div className={`absolute bottom-0 left-0 right-0 p-4 md:p-6 transform transition-transform duration-300 ${isMobile ? 'translate-y-0' : 'group-hover:translate-y-0'}`}>
                 <div className="mb-2">
-                  <span className="px-3 py-1 bg-skye-red/90 text-xs rounded-full text-white">
+                  <span className="px-2 md:px-3 py-1 bg-skye-red/90 text-xs rounded-full text-white">
                     {study.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{study.title}</h3>
-                <p className="text-white/70 text-sm mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                <h3 className="text-lg md:text-xl font-bold mb-2">{study.title}</h3>
+                <p className={`text-white/70 text-sm mb-4 ${isMobile ? 'line-clamp-3' : 'line-clamp-2 group-hover:line-clamp-none'} transition-all duration-300`}>
                   {study.description}
                 </p>
                 <Button variant="link" className="text-skye-red p-0 flex items-center gap-2">
@@ -122,23 +126,25 @@ const CaseStudies = () => {
         </div>
         
         {/* CTA */}
-        <div className="mt-16 text-center flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5">
-            <Link to="/case-study/1">View All Case Studies</Link>
-          </Button>
-          <Button 
-            asChild 
-            variant="outline"
-            className="border border-skye-red/50 hover:bg-skye-red/10 text-white"
-          >
-            <a 
-              href="https://preview--insight-assessment-compass.lovable.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5 w-full sm:w-auto">
+              <Link to="/case-study/1">View All Case Studies</Link>
+            </Button>
+            <Button 
+              asChild 
+              variant="outline"
+              className="border border-skye-red/50 hover:bg-skye-red/10 text-white w-full sm:w-auto"
             >
-              Take Psychometric Test
-            </a>
-          </Button>
+              <a 
+                href="https://preview--insight-assessment-compass.lovable.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Take Psychometric Test
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

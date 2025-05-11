@@ -70,7 +70,8 @@ const Hero = () => {
     <section 
       ref={heroRef}
       id="hero"
-      className="relative h-screen flex flex-col justify-center overflow-hidden"
+      className="relative flex flex-col justify-center overflow-hidden"
+      style={{ minHeight: '100vh' }}
     >
       {/* Digital particles background */}
       <div className="absolute inset-0 z-10 overflow-hidden">
@@ -94,7 +95,7 @@ const Hero = () => {
       
       {/* Red dynamic gradient background */}
       <div 
-        className="absolute top-0 right-0 w-1/2 h-screen blur-3xl rounded-full opacity-30"
+        className="absolute top-0 right-0 w-full md:w-1/2 h-screen blur-3xl rounded-full opacity-30"
         style={{ 
           background: `radial-gradient(circle, rgba(234, 56, 76, 0.2) 0%, rgba(0, 0, 0, 0) 70%)`, 
           transform: !isMobile ? `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)` : 'none',
@@ -109,7 +110,7 @@ const Hero = () => {
       <div className="noise-filter"></div>
       
       {/* Hero content */}
-      <div className="container relative z-20 px-4 max-w-5xl mx-auto">
+      <div className="container relative z-20 px-4 pt-20 pb-16 md:py-0 max-w-5xl mx-auto">
         <div className="max-w-xl mx-auto md:mx-0">
           {/* Animated badge */}
           <div className={`inline-flex items-center bg-black/30 backdrop-blur-md border border-skye-red/10 rounded-full px-4 py-1.5 mb-6 transition-all duration-1000 animate-float ${
@@ -196,38 +197,39 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Hero image */}
+      {/* Hero image - responsive adjustments */}
       <div className="absolute bottom-0 right-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden">
         <div 
           className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-10"
-          style={{ clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
+          style={{ clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
         ></div>
         <div 
           className="absolute inset-0 tech-dots opacity-30 z-20"
-          style={{ clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
+          style={{ clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
         ></div>
         <img 
           src="/lovable-uploads/2f0fb6f2-84b7-4fb0-8815-cb8758880d7a.png" 
           alt="SKYE silhouette" 
           className="absolute bottom-0 right-0 w-full md:w-auto h-full object-cover opacity-60 transition-transform duration-200"
           style={{ 
-            clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)',
-            transform: !isMobile ? `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)` : 'none'
+            clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)',
+            transform: !isMobile ? `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)` : 'none',
+            opacity: isMobile ? '0.4' : '0.6'
           }}
         />
         {/* Digital scan effect */}
         <div 
           className="absolute inset-0 z-30 digital-scan"
-          style={{ clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
+          style={{ clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
         ></div>
       </div>
       
-      {/* Scroll indicator */}
+      {/* Scroll indicator - more visible on mobile */}
       <div 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-30 cursor-pointer scroll-indicator"
         onClick={scrollToNextSection}
       >
-        <div className="w-0.5 h-16 bg-gradient-to-b from-transparent to-skye-red/80 animate-pulse-glow"></div>
+        <div className="w-0.5 h-12 md:h-16 bg-gradient-to-b from-transparent to-skye-red/80 animate-pulse-glow"></div>
         <span className="text-white/60 text-xs mt-2 animate-text-flicker">SCROLL</span>
       </div>
     </section>

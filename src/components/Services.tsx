@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import { Search, Lightbulb, Rocket, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const services = [
   {
@@ -46,6 +48,7 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,6 +68,7 @@ const Services = () => {
   }, []);
 
   const handleCardHover = (index: number | null) => {
+    if (isMobile) return;
     setHoveredIndex(index);
     if (index !== null) {
       setTimeout(() => setActiveCardIndex(index), 150);
@@ -74,7 +78,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-28 relative bg-black overflow-hidden">
+    <section id="services" className="py-16 md:py-28 relative bg-black overflow-hidden">
       {/* Subtle grid background */}
       <div className="absolute inset-0 kriss-grid z-10 opacity-10"></div>
       
@@ -82,12 +86,12 @@ const Services = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-skye-red/20 to-transparent"></div>
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-skye-red/20 to-transparent"></div>
       
-      <div className="container relative z-20">
-        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="container relative z-20 px-4 md:px-6">
+        <div className={`text-center max-w-3xl mx-auto mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block relative mb-6 kriss-reveal">
             <span className="text-sm tracking-wider uppercase text-white/50">Our Expertise</span>
           </div>
-          <h2 className="text-3xl md:text-7xl font-bold mb-6 relative kriss-text">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 relative kriss-text">
             AI-Powered <span className="text-skye-red">Services</span>
           </h2>
         </div>
@@ -96,11 +100,12 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index}
-              className={`bg-black border-white/5 transition-all duration-700 kriss-3d-hover min-h-[500px] ${
+              className={`bg-black border-white/5 transition-all duration-700 kriss-3d-hover ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
               style={{ 
                 transitionDelay: `${index * 150}ms`,
+                minHeight: isMobile ? 'auto' : '500px'
               }}
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={() => handleCardHover(null)}
@@ -115,7 +120,7 @@ const Services = () => {
                 </div>
                 <CardTitle className="text-2xl md:text-3xl font-bold mb-3">
                   <span className="mr-2">{service.title}</span>
-                  {activeCardIndex === index && (
+                  {activeCardIndex === index && !isMobile && (
                     <span className="inline-block h-3 w-0.5 bg-skye-red animate-text-flicker"></span>
                   )}
                 </CardTitle>
@@ -151,16 +156,16 @@ const Services = () => {
         </div>
         
         {/* CTA Section */}
-        <div className={`mt-24 border border-white/5 rounded-none p-12 transition-all duration-1000 delay-500 relative ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`mt-16 md:mt-24 border border-white/5 rounded-none p-6 md:p-12 transition-all duration-1000 delay-500 relative ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="text-left">
               <h3 className="text-2xl md:text-4xl font-bold mb-2">Ready to transform your business?</h3>
-              <p className="text-white/50 max-w-2xl text-lg">
+              <p className="text-white/50 max-w-2xl text-base md:text-lg">
                 Schedule a consultation with our experts and discover how our services can drive growth for your brand.
               </p>
             </div>
-            <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill whitespace-nowrap relative overflow-hidden">
-              <a href="#contact" className="flex items-center gap-2 group py-6 px-6">
+            <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill whitespace-nowrap relative overflow-hidden w-full md:w-auto">
+              <a href="#contact" className="flex items-center justify-center gap-2 group py-4 md:py-6 px-4 md:px-6">
                 Get Started 
                 <span className="ml-2 transition-all duration-300 group-hover:translate-x-2">→</span>
               </a>
@@ -170,15 +175,15 @@ const Services = () => {
       </div>
       
       {/* CTA */}
-      <div className="mt-16 text-center">
+      <div className="mt-16 text-center px-4">
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild className="bg-skye-red hover:bg-skye-red/90 text-white">
+          <Button asChild className="bg-skye-red hover:bg-skye-red/90 text-white w-full sm:w-auto">
             <a href="#contact">Get Started</a>
           </Button>
           <Button 
             asChild 
             variant="outline"
-            className="border border-skye-red/50 hover:bg-skye-red/10 text-white"
+            className="border border-skye-red/50 hover:bg-skye-red/10 text-white w-full sm:w-auto"
           >
             <a 
               href="https://preview--insight-assessment-compass.lovable.app/" 
