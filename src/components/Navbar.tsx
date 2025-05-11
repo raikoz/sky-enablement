@@ -40,7 +40,7 @@ const Navbar = ({ currentSection }: NavbarProps) => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6">
           <a 
             href="#about" 
             className={`text-sm font-medium transition-all duration-300 kriss-button ${
@@ -65,8 +65,25 @@ const Navbar = ({ currentSection }: NavbarProps) => {
           >
             Case Studies
           </a>
+          
+          {/* New Psychometric Test Button */}
+          <Button 
+            asChild 
+            variant="ghost" 
+            className="border border-skye-red text-white hover:bg-skye-red/10 hover:text-white"
+          >
+            <a 
+              href="https://preview--insight-assessment-compass.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              Take Psychometric Test
+            </a>
+          </Button>
+          
           <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill group">
-            <a href="#contact" className="group-hover:text-white">
+            <a href="#contact" className="group-hover:text-white flex items-center justify-center">
               Contact Us
               <span className="ml-2">→</span>
             </a>
@@ -75,7 +92,7 @@ const Navbar = ({ currentSection }: NavbarProps) => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 flex items-center justify-center"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -89,32 +106,49 @@ const Navbar = ({ currentSection }: NavbarProps) => {
           <nav className="flex flex-col container space-y-6">
             <a
               href="#about"
-              className="text-white/70 hover:text-white p-2 kriss-button"
+              className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </a>
             <a
               href="#services"
-              className="text-white/70 hover:text-white p-2 kriss-button"
+              className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </a>
             <a
               href="#case-studies"
-              className="text-white/70 hover:text-white p-2 kriss-button"
+              className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Case Studies
             </a>
+            
+            {/* Mobile Psychometric Test Button */}
+            <Button 
+              asChild 
+              variant="ghost" 
+              className="border border-skye-red text-white hover:bg-skye-red/10 hover:text-white flex items-center justify-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <a 
+                href="https://preview--insight-assessment-compass.lovable.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Take Psychometric Test
+              </a>
+            </Button>
+            
             <Button
               asChild
               variant="ghost"
-              className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill"
+              className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill flex items-center justify-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              <a href="#contact">
+              <a href="#contact" className="flex items-center">
                 Contact Us
                 <span className="ml-2">→</span>
               </a>
