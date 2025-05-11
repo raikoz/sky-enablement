@@ -1,5 +1,6 @@
 
 import { CheckCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const advantages = [
   "Expert team with deep AI expertise",
@@ -11,8 +12,8 @@ const advantages = [
 const About = () => {
   return (
     <section id="about" className="py-24 relative">
-      {/* Background accent */}
-      <div className="absolute top-0 left-0 right-0 h-1/2 bg-skye-darkGray clip-path-slant"></div>
+      {/* Background accent - fixed distorted background */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-skye-darkGray/30"></div>
       
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -64,13 +65,39 @@ const About = () => {
             </p>
             
             {/* Advantages */}
-            <div className="space-y-3">
+            <div className="space-y-3 mb-8">
               {advantages.map((advantage, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="text-skye-red h-5 w-5 flex-shrink-0" />
                   <span className="text-white/90">{advantage}</span>
                 </div>
               ))}
+            </div>
+            
+            {/* Add CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <Button 
+                asChild 
+                className="bg-skye-red hover:bg-skye-red/90 text-white rounded-md flex items-center gap-2"
+              >
+                <a href="#contact">
+                  Contact Us
+                  <span className="ml-1">→</span>
+                </a>
+              </Button>
+              <Button 
+                asChild 
+                variant="outline"
+                className="border border-skye-red/50 hover:bg-skye-red/10 text-white rounded-md"
+              >
+                <a 
+                  href="https://preview--insight-assessment-compass.lovable.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Take Psychometric Test
+                </a>
+              </Button>
             </div>
           </div>
         </div>

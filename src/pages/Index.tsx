@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import VideoSection from "@/components/VideoSection";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import CaseStudies from "@/components/CaseStudies";
@@ -43,6 +44,23 @@ const Index = () => {
       });
     };
 
+    // Handle scroll down button click
+    const handleScrollIndicatorClick = () => {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        const nextSection = heroSection.nextElementSibling;
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    // Add click event listener to scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener('click', handleScrollIndicatorClick);
+    }
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
     handleScroll(); // Check on mount
@@ -75,6 +93,10 @@ const Index = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', adjustSectionHeights);
+      
+      if (scrollIndicator) {
+        scrollIndicator.removeEventListener('click', handleScrollIndicatorClick);
+      }
     };
   }, []);
 
@@ -119,6 +141,7 @@ const Index = () => {
       
       <main className="relative z-10 snap-y snap-mandatory">
         <Hero />
+        <VideoSection />
         <Services />
         <About />
         <CaseStudies />

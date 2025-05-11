@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Search, Lightbulb, Rocket, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -167,6 +166,28 @@ const Services = () => {
               </a>
             </Button>
           </div>
+        </div>
+      </div>
+      
+      {/* CTA */}
+      <div className="mt-16 text-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild className="bg-skye-red hover:bg-skye-red/90 text-white">
+            <a href="#contact">Get Started</a>
+          </Button>
+          <Button 
+            asChild 
+            variant="outline"
+            className="border border-skye-red/50 hover:bg-skye-red/10 text-white"
+          >
+            <a 
+              href="https://preview--insight-assessment-compass.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Take Psychometric Test
+            </a>
+          </Button>
         </div>
       </div>
     </section>

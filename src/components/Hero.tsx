@@ -35,6 +35,13 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById('video-section');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const headlines = [
     "Future-Forward Brands",
     "Industry Leaders",
@@ -165,6 +172,22 @@ const Hero = () => {
                 </span>
               </a>
             </Button>
+            
+            {/* Secondary CTA for Psychometric Test */}
+            <Button
+              asChild
+              variant="outline"
+              className="border border-skye-red/50 hover:bg-skye-red/10 text-white px-6 py-5 rounded-md"
+              size="lg"
+            >
+              <a 
+                href="https://preview--insight-assessment-compass.lovable.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Take Psychometric Test
+              </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -196,7 +219,10 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-30">
+      <div 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-30 cursor-pointer scroll-indicator"
+        onClick={scrollToNextSection}
+      >
         <div className="w-0.5 h-16 bg-gradient-to-b from-transparent to-skye-red/80 animate-pulse-glow"></div>
         <span className="text-white/60 text-xs mt-2 animate-text-flicker">SCROLL</span>
       </div>
