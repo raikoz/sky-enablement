@@ -33,10 +33,11 @@ const Navbar = ({ currentSection }: NavbarProps) => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="relative group">
-          <span className="text-3xl font-bold tracking-wider font-sans bg-black/50 px-4 py-2 backdrop-blur-sm border border-skye-red/20 rounded-sm transition-all duration-300 hover:border-skye-red/50">
-            S<span className="text-skye-red">K</span>YE
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-skye-red group-hover:w-full transition-all duration-500"></span>
-          </span>
+          <img 
+            src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
+            alt="SKYE Logo" 
+            className="h-10 transition-all duration-300"
+          />
         </a>
 
         {/* Desktop Navigation */}

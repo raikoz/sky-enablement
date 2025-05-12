@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -83,7 +84,7 @@ const Hero = () => {
               left: particle.left,
               width: `${particle.size}px`,
               height: `${particle.size}px`,
-              backgroundColor: 'rgba(234, 56, 76, 0.6)',
+              backgroundColor: 'rgba(137, 84, 238, 0.6)', // Updated to #8954ee with opacity
               borderRadius: '50%',
               animation: `pulse-glow ${particle.animationDuration} infinite ease-in-out`,
               animationDelay: particle.delay,
@@ -92,11 +93,11 @@ const Hero = () => {
         ))}
       </div>
       
-      {/* Red dynamic gradient background */}
+      {/* Purple dynamic gradient background */}
       <div 
         className="absolute top-0 right-0 w-full md:w-1/2 h-screen blur-3xl rounded-full opacity-30"
         style={{ 
-          background: `radial-gradient(circle, rgba(234, 56, 76, 0.2) 0%, rgba(0, 0, 0, 0) 70%)`, 
+          background: `radial-gradient(circle, rgba(137, 84, 238, 0.2) 0%, rgba(0, 0, 0, 0) 70%)`, // Updated to #8954ee with opacity
           transform: !isMobile ? `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)` : 'none',
           transition: 'transform 0.1s ease-out'
         }}

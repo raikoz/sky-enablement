@@ -32,7 +32,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70"></div>
             </div>
             
-            {/* Blue accent */}
+            {/* Purple accent */}
             <div className="absolute -bottom-6 -left-6 w-1/2 aspect-square bg-skye-red blue-glow rounded-full blur-3xl opacity-20"></div>
             
             {/* Stats - adjusted for mobile */}

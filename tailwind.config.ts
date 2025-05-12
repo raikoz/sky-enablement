@@ -53,7 +53,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				skye: {
-					red: '#0070F3', // Changed from red to blue
+					red: '#8954ee', // Changed from blue to purple
 					black: '#000000',
 					darkGray: '#111111',
 					white: '#ffffff',
