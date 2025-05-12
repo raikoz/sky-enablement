@@ -1,4 +1,3 @@
-
 import { ArrowUp } from 'lucide-react';
 
 const Footer = () => {
@@ -16,7 +15,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
                 alt="SKYE Logo" 
-                className="h-14" // Increased size by 40% from approximate baseline
+                className="h-18" // Increased by 30% from previous h-14
               />
             </div>
             <p className="text-white/50 text-sm mt-2">
@@ -66,15 +65,7 @@ const Footer = () => {
         
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} 
-            <span className="inline-block mx-1 align-middle">
-              <img 
-                src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                alt="SKYE Logo" 
-                className="h-5 inline" 
-              />
-            </span> 
-            AI. All rights reserved.
+            © {new Date().getFullYear()} AI. All rights reserved.
           </p>
           
           <div className="flex space-x-6 text-sm text-white/40">

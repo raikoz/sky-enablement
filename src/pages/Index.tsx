@@ -131,7 +131,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
               alt="SKYE Logo" 
-              className="h-28 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" // Increased by 40% from approx. h-20
+              className="h-36 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" // Increased by 30% from h-28
             />
           </div>
         </div>

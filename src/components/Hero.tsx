@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -134,7 +133,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
                 alt="SKYE Logo" 
-                className="h-8 sm:h-10 md:h-12 lg:h-14 inline" // Sized proportionally to the heading
+                className="h-10 sm:h-13 md:h-16 lg:h-18 inline" // Increased by 30% from previous sizes
               />
             </h1>
           </div>
@@ -159,14 +158,7 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <p className="text-white/80 text-sm sm:text-base mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade flex items-center">
-              <span className="mr-1">
-                <img 
-                  src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                  alt="SKYE Logo" 
-                  className="h-5 inline" 
-                />
-              </span>
+            <p className="text-white/80 text-sm sm:text-base mt-6 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
               Empowering brands to leverage AI for exceptional growth and innovation.
             </p>
           </div>
