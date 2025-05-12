@@ -32,8 +32,8 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70"></div>
             </div>
             
-            {/* Red accent */}
-            <div className="absolute -bottom-6 -left-6 w-1/2 aspect-square bg-skye-red red-glow rounded-full blur-3xl opacity-20"></div>
+            {/* Blue accent */}
+            <div className="absolute -bottom-6 -left-6 w-1/2 aspect-square bg-skye-red blue-glow rounded-full blur-3xl opacity-20"></div>
             
             {/* Stats - adjusted for mobile */}
             <div className="absolute left-0 bottom-0 p-4 md:p-8">
@@ -52,7 +52,7 @@ const About = () => {
           
           {/* Content column */}
           <div className="lg:order-1">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6">
               About <span className="text-skye-red">SKYE</span>
             </h2>
             

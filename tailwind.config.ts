@@ -54,9 +54,9 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				skye: {
-					red: '#ea384c',
+					red: '#0070F3', // Changed from red to blue
 					black: '#000000',
-					darkGray: '#222222',
+					darkGray: '#111111',
 					white: '#ffffff',
 				},
 				sidebar: {
@@ -122,7 +122,8 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				mono: ['Roboto Mono', 'monospace'],
+				mono: ['JetBrains Mono', 'monospace'],
+				heading: ['Cal Sans', 'sans-serif'],
 			},
 		},
 	},
