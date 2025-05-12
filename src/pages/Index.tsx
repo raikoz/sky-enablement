@@ -156,7 +156,11 @@ const Index = () => {
         <Hero />
         <Services />
         <About />
-        <CaseStudies />
+        <div id="case-studies-wrapper" className="relative">
+          <div className="absolute inset-0 bg-case-studies bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/80"></div>
+          <CaseStudies />
+        </div>
         <Testimonials />
         <Contact />
       </main>

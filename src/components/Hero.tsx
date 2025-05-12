@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -208,8 +207,8 @@ const Hero = () => {
           style={{ clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)' }}
         ></div>
         <img 
-          src="/lovable-uploads/2f0fb6f2-84b7-4fb0-8815-cb8758880d7a.png" 
-          alt="SKYE silhouette" 
+          src="/lovable-uploads/7342678a-1e47-4a82-8efe-3f1b02806cfe.png" 
+          alt="SKYE hero image" 
           className="absolute bottom-0 right-0 w-full md:w-auto h-full object-cover opacity-60 transition-transform duration-200"
           style={{ 
             clipPath: isMobile ? 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%)',

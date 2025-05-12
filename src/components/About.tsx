@@ -24,7 +24,7 @@ const About = () => {
           <div className="relative lg:order-2 mb-8 lg:mb-0">
             <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
               <img
-                src="/lovable-uploads/49a2b453-bc58-410a-9a69-6d941b659441.png"
+                src="/lovable-uploads/05725ec8-7a57-4b9e-af93-43464444895b.png"
                 alt="SKYE expertise"
                 className="w-full h-full object-cover"
                 loading="lazy"

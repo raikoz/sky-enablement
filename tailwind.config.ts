@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -69,6 +68,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'case-studies': "url('/lovable-uploads/a3baecbd-8bef-4142-a4a3-78ff7003c347.png')"
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

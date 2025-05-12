@@ -104,6 +104,16 @@ const Testimonials = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/c50e3f31-c530-42a0-a065-2c4ee37611fc.png" 
+          alt="Testimonials background" 
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+      </div>
+      
       {/* Subtle background grid */}
       <div className="absolute top-0 left-0 w-full h-full kriss-grid opacity-10"></div>
       
