@@ -128,7 +128,11 @@ const Index = () => {
       >
         <div className="relative mb-12">
           <div className="w-24 h-24 relative">
-            <span className="text-skye-red text-4xl font-bold animate-text-flicker absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-sans">SKYE</span>
+            <img 
+              src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
+              alt="SKYE Logo" 
+              className="h-28 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" // Increased by 40% from approx. h-20
+            />
           </div>
         </div>
         <div className="w-48 h-0.5 overflow-hidden">

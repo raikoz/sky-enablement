@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -36,7 +35,7 @@ const Navbar = ({ currentSection }: NavbarProps) => {
           <img 
             src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
             alt="SKYE Logo" 
-            className="h-10 transition-all duration-300"
+            className="h-14 transition-all duration-300"
           />
         </a>
 
@@ -67,7 +66,7 @@ const Navbar = ({ currentSection }: NavbarProps) => {
             Case Studies
           </a>
           
-          {/* New Psychometric Test Button */}
+          {/* Psychometric Test Button */}
           <Button 
             asChild 
             variant="ghost" 
