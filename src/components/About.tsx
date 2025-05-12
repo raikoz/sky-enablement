@@ -1,3 +1,4 @@
+
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -57,13 +58,19 @@ const About = () => {
                 <img 
                   src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
                   alt="SKYE Logo" 
-                  className="h-10 md:h-13 lg:h-16 inline" // Increased by 30% from previous sizes
+                  className="h-8 md:h-10 lg:h-12 inline" // Sized proportionally to the heading
                 />
               </span>
             </h2>
             
             <p className="text-white/80 mb-6">
-              is a premier AI enablement company dedicated to helping forward-thinking brands harness the 
+              <span className="inline-block align-middle mr-1">
+                <img 
+                  src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
+                  alt="SKYE Logo" 
+                  className="h-5 inline" 
+                />
+              </span> is a premier AI enablement company dedicated to helping forward-thinking brands harness the 
               full potential of artificial intelligence. We bridge the gap between cutting-edge technology 
               and practical business applications, delivering solutions that drive measurable growth.
             </p>
