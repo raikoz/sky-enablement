@@ -2,10 +2,13 @@
 import { useEffect, useState, useRef } from 'react';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import CaseStudies from "@/components/CaseStudies";
-import Testimonials from "@/components/Testimonials";
+import IdentityTransformation from "@/components/IdentityTransformation";
+import DepartmentCards from "@/components/DepartmentCards";
+import Calculator from "@/components/Calculator";
+import HowSkyeWorks from "@/components/HowSkyeWorks";
+import FAQs from "@/components/FAQs";
+import SkyeNumbers from "@/components/SkyeNumbers";
+import FinalCTA from "@/components/FinalCTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SkyeChatBot from "@/components/SkyChatBot";
@@ -84,7 +87,7 @@ const Index = () => {
       sections.forEach((section) => {
         const htmlElement = section as HTMLElement;
         if (!isMobile) {
-          htmlElement.style.height = `${viewportHeight}px`;
+          htmlElement.style.height = `auto`;
           htmlElement.style.minHeight = `${viewportHeight}px`;
         } else {
           // For mobile, use auto height to properly show all content
@@ -152,16 +155,15 @@ const Index = () => {
 
       <Navbar currentSection={currentSection} />
       
-      <main className="relative z-10 md:snap-y md:snap-mandatory">
+      <main className="relative z-10">
         <Hero />
-        <Services />
-        <About />
-        <div id="case-studies-wrapper" className="relative">
-          <div className="absolute inset-0 bg-case-studies bg-cover bg-center opacity-20"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/80"></div>
-          <CaseStudies />
-        </div>
-        <Testimonials />
+        <IdentityTransformation />
+        <DepartmentCards />
+        <Calculator />
+        <HowSkyeWorks />
+        <FAQs />
+        <SkyeNumbers />
+        <FinalCTA />
         <Contact />
       </main>
       

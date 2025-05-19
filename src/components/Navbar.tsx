@@ -43,49 +43,41 @@ const Navbar = ({ currentSection }: NavbarProps) => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <a 
-            href="#about" 
+            href="#identity-transformation" 
             className={`text-sm font-medium transition-all duration-300 kriss-button ${
-              currentSection === 'about' ? 'text-white' : 'text-white/70 hover:text-white'
+              currentSection === 'identity-transformation' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
-            About
+            Transformation
           </a>
           <a 
-            href="#services" 
+            href="#department-cards" 
             className={`text-sm font-medium transition-all duration-300 kriss-button ${
-              currentSection === 'services' ? 'text-white' : 'text-white/70 hover:text-white'
+              currentSection === 'department-cards' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
-            Services
+            Departments
           </a>
           <a 
-            href="#case-studies" 
+            href="#calculator" 
             className={`text-sm font-medium transition-all duration-300 kriss-button ${
-              currentSection === 'case-studies' ? 'text-white' : 'text-white/70 hover:text-white'
+              currentSection === 'calculator' ? 'text-white' : 'text-white/70 hover:text-white'
             }`}
           >
-            Case Studies
+            Calculator
           </a>
-          
-          {/* New Psychometric Test Button */}
-          <Button 
-            asChild 
-            variant="ghost" 
-            className="border border-skye-red text-white hover:bg-skye-red/10 hover:text-white"
+          <a 
+            href="#how-skye-works" 
+            className={`text-sm font-medium transition-all duration-300 kriss-button ${
+              currentSection === 'how-skye-works' ? 'text-white' : 'text-white/70 hover:text-white'
+            }`}
           >
-            <a 
-              href="https://preview--insight-assessment-compass.lovable.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center"
-            >
-              Take Psychometric Test
-            </a>
-          </Button>
+            How It Works
+          </a>
           
           <Button asChild variant="ghost" className="border border-skye-red/20 hover:bg-skye-red/10 text-white kriss-hover-fill group">
             <a href="#contact" className="group-hover:text-white flex items-center justify-center">
-              Contact Us
+              Book a Demo
               <span className="ml-2">→</span>
             </a>
           </Button>
@@ -106,43 +98,33 @@ const Navbar = ({ currentSection }: NavbarProps) => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-white/5 py-8">
           <nav className="flex flex-col container space-y-6">
             <a
-              href="#about"
+              href="#identity-transformation"
               className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              Transformation
             </a>
             <a
-              href="#services"
+              href="#department-cards"
               className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Services
+              Departments
             </a>
             <a
-              href="#case-studies"
+              href="#calculator"
               className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Case Studies
+              Calculator
             </a>
-            
-            {/* Mobile Psychometric Test Button */}
-            <Button 
-              asChild 
-              variant="ghost" 
-              className="border border-skye-red text-white hover:bg-skye-red/10 hover:text-white flex items-center justify-center"
+            <a
+              href="#how-skye-works"
+              className="text-white/70 hover:text-white p-2 kriss-button flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              <a 
-                href="https://preview--insight-assessment-compass.lovable.app/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                Take Psychometric Test
-              </a>
-            </Button>
-            
+              How It Works
+            </a>
             <Button
               asChild
               variant="ghost"
@@ -150,7 +132,7 @@ const Navbar = ({ currentSection }: NavbarProps) => {
               onClick={() => setIsMenuOpen(false)}
             >
               <a href="#contact" className="flex items-center">
-                Contact Us
+                Book a Demo
                 <span className="ml-2">→</span>
               </a>
             </Button>

@@ -12,11 +12,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo */}
           <div className="mb-8 md:mb-0">
-            <h2 className="text-2xl font-bold font-mono tracking-wider">
-              S<span className="text-skye-red">K</span>YE
-            </h2>
+            <img 
+              src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
+              alt="SKYE Logo" 
+              className="h-14 transition-all duration-300 mb-2"
+            />
             <p className="text-white/50 text-sm mt-2">
-              AI Enablement for Future-Forward Brands
+              Let Humans Work Like Humans Again
             </p>
           </div>
           
@@ -34,9 +36,9 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-4 text-sm">Services</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#services" className="text-white/60 hover:text-white transition-colors">AI Strategy</a></li>
-                <li><a href="#services" className="text-white/60 hover:text-white transition-colors">Implementation</a></li>
-                <li><a href="#services" className="text-white/60 hover:text-white transition-colors">Data Engineering</a></li>
+                <li><a href="#department-cards" className="text-white/60 hover:text-white transition-colors">Departments</a></li>
+                <li><a href="#how-skye-works" className="text-white/60 hover:text-white transition-colors">How It Works</a></li>
+                <li><a href="#calculator" className="text-white/60 hover:text-white transition-colors">ROI Calculator</a></li>
               </ul>
             </div>
             
