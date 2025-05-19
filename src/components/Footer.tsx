@@ -12,13 +12,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo */}
           <div className="mb-8 md:mb-0">
-            <div className="mb-2">
-              <img 
-                src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                alt="SKYE Logo" 
-                className="h-14" // Increased size by 40% from approximate baseline
-              />
-            </div>
+            <h2 className="text-2xl font-bold font-mono tracking-wider">
+              S<span className="text-skye-red">K</span>YE
+            </h2>
             <p className="text-white/50 text-sm mt-2">
               AI Enablement for Future-Forward Brands
             </p>
@@ -66,15 +62,7 @@ const Footer = () => {
         
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} 
-            <span className="inline-block mx-1 align-middle">
-              <img 
-                src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                alt="SKYE Logo" 
-                className="h-5 inline" 
-              />
-            </span> 
-            AI. All rights reserved.
+            © {new Date().getFullYear()} SKYE AI. All rights reserved.
           </p>
           
           <div className="flex space-x-6 text-sm text-white/40">

@@ -52,25 +52,12 @@ const About = () => {
           
           {/* Content column */}
           <div className="lg:order-1">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6 flex items-center">
-              About 
-              <span className="ml-2">
-                <img 
-                  src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                  alt="SKYE Logo" 
-                  className="h-8 md:h-10 lg:h-12 inline" // Sized proportionally to the heading
-                />
-              </span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6">
+              About <span className="text-skye-red">SKYE</span>
             </h2>
             
             <p className="text-white/80 mb-6">
-              <span className="inline-block align-middle mr-1">
-                <img 
-                  src="/lovable-uploads/fb9195f0-40ab-4dd6-819a-f538f3eb7fc2.png" 
-                  alt="SKYE Logo" 
-                  className="h-5 inline" 
-                />
-              </span> is a premier AI enablement company dedicated to helping forward-thinking brands harness the 
+              SKYE is a premier AI enablement company dedicated to helping forward-thinking brands harness the 
               full potential of artificial intelligence. We bridge the gap between cutting-edge technology 
               and practical business applications, delivering solutions that drive measurable growth.
             </p>
