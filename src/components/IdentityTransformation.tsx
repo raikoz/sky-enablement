@@ -13,7 +13,7 @@ const comparisonItems: ComparisonItem[] = [
     after: 'Handled—SKYE did it.'
   },
   {
-    before: '"Who's updating the deck?"',
+    before: '"Who\'s updating the deck?"',
     after: 'Updated. Auto-sent.'
   },
   {
@@ -21,8 +21,8 @@ const comparisonItems: ComparisonItem[] = [
     after: 'Already generated. Already sent.'
   },
   {
-    before: '"I'll get to the CRM later."',
-    after: 'It's already clean.'
+    before: '"I\'ll get to the CRM later."',
+    after: 'It\'s already clean.'
   }
 ];
 

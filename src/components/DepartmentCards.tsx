@@ -14,7 +14,7 @@ type Department = {
 const departments: Department[] = [
   {
     name: "HR",
-    problem: ""Where's my payslip?" "How many leaves left?" "Can I get that letter?"",
+    problem: "\"Where\'s my payslip?\" \"How many leaves left?\" \"Can I get that letter?\"",
     features: [
       "Answers to all HR policy, benefits, and leave queries",
       "Leave tracking and approval suggestions based on team calendars",
@@ -26,7 +26,7 @@ const departments: Department[] = [
   },
   {
     name: "Admin",
-    problem: ""Is there budget for this?" "Where's my reimbursement?" "Can we book this?"",
+    problem: "\"Is there budget for this?\" \"Where\'s my reimbursement?\" \"Can we book this?\"",
     features: [
       "Budget checks and reimbursement validations",
       "Team-level event request routing",
@@ -38,7 +38,7 @@ const departments: Department[] = [
   },
   {
     name: "IT & Helpdesk",
-    problem: ""How do I reset this?" "Where's the access request form?" "My tool crashed again."",
+    problem: "\"How do I reset this?\" \"Where\'s the access request form?\" \"My tool crashed again.\"",
     features: [
       "Answers to common IT issues",
       "Triages and routes support tickets with context",
@@ -50,7 +50,7 @@ const departments: Department[] = [
   },
   {
     name: "Sales",
-    problem: ""Did we follow up?" "Where's the deck?" "The CRM's outdated again."",
+    problem: "\"Did we follow up?\" \"Where\'s the deck?\" \"The CRM\'s outdated again.\"",
     features: [
       "Follow-up cadences and reminders",
       "Custom proposals + decks pulled from templates",
@@ -62,7 +62,7 @@ const departments: Department[] = [
   },
   {
     name: "Marketing",
-    problem: ""Did the campaign go out?" "This doc is missing again." "Where's the report?"",
+    problem: "\"Did the campaign go out?\" \"This doc is missing again.\" \"Where\'s the report?\"",
     features: [
       "Triggering emails and posts based on campaigns",
       "Internal task handoffs + deadline tracking",
@@ -74,7 +74,7 @@ const departments: Department[] = [
   },
   {
     name: "Ops",
-    problem: ""Who's checking this?" "Did we catch that error?" "SOP missed again?"",
+    problem: "\"Who\'s checking this?\" \"Did we catch that error?\" \"SOP missed again?\"",
     features: [
       "Daily status updates + anomaly alerts",
       "Handoff coordination across teams",
@@ -86,7 +86,7 @@ const departments: Department[] = [
   },
   {
     name: "Finance",
-    problem: ""This invoice is still pending." "Why didn't we reconcile?" "Where's the file?"",
+    problem: "\"This invoice is still pending.\" \"Why didn\'t we reconcile?\" \"Where\'s the file?\"",
     features: [
       "Statement follow-ups + payment reminders",
       "Reconciliation task handling",
