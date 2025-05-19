@@ -92,13 +92,27 @@ const Index = () => {
         } else {
           // For mobile, use auto height to properly show all content
           htmlElement.style.height = 'auto';
-          htmlElement.style.minHeight = `${viewportHeight}px`;
+          htmlElement.style.minHeight = `auto`;
+          htmlElement.style.paddingTop = section.id === 'hero' ? '80px' : '40px';
+          htmlElement.style.paddingBottom = '40px';
         }
       });
     };
     
+    // Fix for mobile viewport height issues with browser chrome
+    const setMobileVH = () => {
+      if (isMobile) {
+        // Set a CSS variable for true viewport height
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      }
+    };
+    
+    setMobileVH();
     adjustSectionHeights();
-    window.addEventListener('resize', adjustSectionHeights);
+    window.addEventListener('resize', () => {
+      adjustSectionHeights();
+      setMobileVH();
+    });
     
     return () => {
       clearTimeout(timer);
@@ -107,6 +121,7 @@ const Index = () => {
         window.removeEventListener('mousemove', handleMouseMove);
       }
       window.removeEventListener('resize', adjustSectionHeights);
+      window.removeEventListener('resize', setMobileVH);
       
       if (scrollIndicator) {
         scrollIndicator.removeEventListener('click', handleScrollIndicatorClick);
