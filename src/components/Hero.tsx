@@ -1,9 +1,7 @@
-
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -12,7 +10,6 @@ const Hero = () => {
     y: 0
   });
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -41,7 +38,6 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isMobile]);
-  
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('identity-transformation');
     if (nextSection) {
@@ -64,9 +60,7 @@ const Hero = () => {
       delay: `${Math.random() * 5}s`
     }));
   };
-  
   const particles = generateRandomParticles(isMobile ? 15 : 30);
-  
   return <section ref={heroRef} id="hero" className="relative flex flex-col justify-center overflow-hidden" style={{
     minHeight: '100vh'
   }}>
@@ -100,7 +94,7 @@ const Hero = () => {
       
       {/* Hero content */}
       <div className="container relative z-20 px-4 pt-20 pb-16 md:py-0 max-w-5xl mx-auto">
-        <div className={`max-w-xl mx-auto md:mx-0 ${isMobile ? 'mt-16' : ''}`}>
+        <div className="max-w-xl mx-auto md:mx-0">
           {/* Logo */}
           <div className={`flex items-center mb-6 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             
@@ -115,7 +109,7 @@ const Hero = () => {
           </div>
 
           <div className={`max-w-lg mb-8 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-white/80 text-base md:text-lg mt-4 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
+            <p className="text-white/80 text-lg mt-4 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade sm:text-base py-[6px] my-[10px]">
               Your team didn't sign up for busywork.
               <br /><br />
               SKYE replaces the grunt work with AI agents trained on your workflows—ready to go from Day 1.
