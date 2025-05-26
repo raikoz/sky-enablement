@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,34 +25,17 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Google Sheets script URL - replace with your actual script URL from Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
-    
-    try {
-      // Format data for Google Sheets
-      const formDataForSheet = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataForSheet.append(key, value);
-      });
-      formDataForSheet.append('timestamp', new Date().toISOString());
-      
-      // Send data to Google Sheets
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        body: formDataForSheet,
-        mode: 'no-cors'
-      });
-      
+    // Simulate form submission
+    setTimeout(() => {
       toast({
         title: "Message sent",
         description: "We'll get back to you shortly.",
       });
-      
-      // Reset form
+      setIsSubmitting(false);
       setFormData({ 
         name: '', 
         email: '', 
@@ -62,16 +46,7 @@ const Contact = () => {
         hearAboutUs: '', 
         message: '' 
       });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast({
-        title: "Error sending message",
-        description: "There was a problem sending your message. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   return (
