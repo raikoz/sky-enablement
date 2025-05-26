@@ -109,7 +109,7 @@ const Hero = () => {
           </div>
 
           <div className={`max-w-lg mb-8 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-white/80 text-lg mt-4 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade sm:text-base py-[6px] my-[10px]">
+            <p className="text-white/80 text-lg sm:text-xl mt-4 leading-relaxed backdrop-blur-sm p-4 bg-black/20 border-l border-skye-red/30 animate-slide-up-fade">
               Your team didn't sign up for busywork.
               <br /><br />
               SKYE replaces the grunt work with AI agents trained on your workflows—ready to go from Day 1.
