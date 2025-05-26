@@ -1,9 +1,7 @@
-
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -12,7 +10,6 @@ const Hero = () => {
     y: 0
   });
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -41,7 +38,6 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isMobile]);
-  
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('identity-transformation');
     if (nextSection) {
@@ -64,9 +60,7 @@ const Hero = () => {
       delay: `${Math.random() * 5}s`
     }));
   };
-  
   const particles = generateRandomParticles(isMobile ? 15 : 30);
-  
   return <section ref={heroRef} id="hero" className="relative flex flex-col justify-center overflow-hidden" style={{
     minHeight: '100vh'
   }}>
@@ -99,7 +93,7 @@ const Hero = () => {
       <div className="noise-filter"></div>
       
       {/* Hero content */}
-      <div className="container relative z-20 px-4 pt-20 pb-16 md:py-0 max-w-5xl mx-auto">
+      <div className="container relative z-20 px-4 pt-20 pb-16 md:py-0 max-w-5xl mx-auto py-0">
         <div className={`max-w-xl mx-auto md:mx-0 ${isMobile ? 'mt-16' : ''}`}>
           {/* Logo */}
           <div className={`flex items-center mb-6 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
